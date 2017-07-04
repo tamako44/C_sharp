@@ -205,7 +205,7 @@
             this.radio_label.TabIndex = 14;
             this.radio_label.Text = "Minatomirai";
             // 
-            // Button
+            // Form_renshu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -225,8 +225,9 @@
             this.Controls.Add(this.btn_2);
             this.Controls.Add(this.btn_label);
             this.Controls.Add(this.btn_1);
-            this.Name = "Button";
+            this.Name = "Form_renshu";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form_renshu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

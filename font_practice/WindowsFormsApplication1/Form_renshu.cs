@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        //Button
         private void btn_1_Click(object sender, EventArgs e)
         {
             //MSDN have .this at head
@@ -27,10 +28,8 @@ namespace WindowsFormsApplication1
 
         private void btn_2_Click(object sender, EventArgs e)
         {
-            //btn_label.Font = new Font("Arial",40);
             btn_label.Font = new Font("Arial", rnd_num());
             btn_label.Text = "Fahne Inc";
-            //btn_label.Font = new System.Drawing.Font(l.Font.FontFamily.Name, 12);
         }
 
         private void btn_3_Click(object sender, EventArgs e)
@@ -41,13 +40,17 @@ namespace WindowsFormsApplication1
 
         private void btn_4_Click(object sender, EventArgs e)
         {
-            btn_label.Font = null;
+            btn_label.Text = String.Empty;
         }
 
+        //Check Box
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //check_label.ResetText();
-            check_label.Text = "Fahne Inc";
+            if (checkBox1.Checked)
+                check_label.Text = "Fahne Inc";
+            //else
+                
+
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -64,6 +67,9 @@ namespace WindowsFormsApplication1
             check_label.Location = new Point(rnd_num(), rnd_num());
         }
 
+    
+
+        //Radio button
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
@@ -84,7 +90,11 @@ namespace WindowsFormsApplication1
             return size;  
         }
 
-       
+        private void Form_renshu_Load(object sender, EventArgs e)
+        {
+            btn_label.Text = String.Empty;
+            radio_label.Text = "Minatomirai";
 
+        }
     }
 }
