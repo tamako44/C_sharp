@@ -1,9 +1,9 @@
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
-c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Button.resources
