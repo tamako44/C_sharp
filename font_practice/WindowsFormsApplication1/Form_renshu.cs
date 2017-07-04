@@ -12,7 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form_renshu : Form
     {
-
+        private String default_text = "Yokohama";
         
         public Form_renshu()
         {
@@ -48,25 +48,49 @@ namespace WindowsFormsApplication1
         {
             if (checkBox1.Checked)
                 check_label.Text = "Fahne Inc";
-            //else
-                
+            else
+            {
+                Style.Formatter formatter = new Style.Formatter();
+                formatter.setup_Label(check_label);
+            }
 
         }
 
+        
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            check_label.Font = new Font("Arial", rnd_num());
+
+            if (checkBox2.Checked)
+                check_label.Font = new Font("Arial", rnd_num());
+            else
+            {
+                Style.Formatter formatter = new Style.Formatter();
+                formatter.setup_Label(check_label);
+            }
         }
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            check_label.ForeColor = Color.Yellow;
+            if (checkBox3.Checked)
+                check_label.ForeColor = Color.Yellow;
+            else
+            {
+                Style.Formatter formatter = new Style.Formatter();
+                formatter.setup_Label(check_label);
+            }
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            check_label.Location = new Point(rnd_num(), rnd_num());
-        }
 
+            if (checkBox4.Checked)
+                check_label.Location = new Point(rnd_num(), rnd_num());
+            else
+            {
+                Style.Formatter formatter = new Style.Formatter();
+                formatter.setup_Label(check_label);
+            }
+        }
+        
     
 
         //Radio button
@@ -95,6 +119,21 @@ namespace WindowsFormsApplication1
             btn_label.Text = String.Empty;
             radio_label.Text = "Minatomirai";
 
+        }
+    }
+}
+
+namespace Style
+{
+    class Formatter
+    {
+        public void setup_Label(Label label)
+        {
+            label.AutoSize = true;
+            label.Location = new Point(343, 242);
+            label.Font = new Font("PMingLiU", 9);
+            label.Text = "Yokohama";
+            label.ForeColor = Color.Black;
         }
     }
 }

@@ -7,3 +7,12 @@ c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\Window
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 c:\users\ysc\onedrive\documents\visual studio 2015\Projects\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form_renshu.resources
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form_renshu.resources
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\vince\Documents\Tamako\C_sharp\font_practice\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
