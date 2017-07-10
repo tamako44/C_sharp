@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RondomNum.cs" />
     <Compile Include="Form_renshu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -15,8 +15,6 @@ namespace WindowsFormsApplication1
     public partial class Form_renshu : Form
     {
         private String default_text = "Yokohama";
-
-       //Random Random = new Random();
         
         public Form_renshu()
         {
@@ -44,7 +42,9 @@ namespace WindowsFormsApplication1
 
         private void btn_4_Click(object sender, EventArgs e)
         {
-            btn_label.Text = String.Empty;
+            //btn_label.Text = String.Empty;
+            btn_label.ResetFont();
+            //InitFont.MyLabel();
         }
 
         //Check Box
@@ -68,8 +68,9 @@ namespace WindowsFormsApplication1
                 check_label.Font = new Font("Arial", RondomNum.get_rnd_size());
             else
             {
-                Style.Formatter formatter = new Style.Formatter();
-                formatter.setup_Label(check_label);
+                //Style.Formatter formatter = new Style.Formatter();
+                //formatter.setup_Label(check_label);
+                check_label.ResetFont();
             }
         }
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
