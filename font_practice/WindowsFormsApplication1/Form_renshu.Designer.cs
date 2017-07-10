@@ -43,6 +43,7 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.check_label = new System.Windows.Forms.Label();
             this.radio_label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_label
@@ -205,11 +206,21 @@
             this.radio_label.TabIndex = 14;
             this.radio_label.Text = "Minatomirai";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(775, 421);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
+            // 
             // Form_renshu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 494);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.radio_label);
             this.Controls.Add(this.check_label);
             this.Controls.Add(this.btn_4);
@@ -250,6 +261,7 @@
         private System.Windows.Forms.Button btn_4;
         private System.Windows.Forms.Label check_label;
         private System.Windows.Forms.Label radio_label;
+        private System.Windows.Forms.Label label1;
     }
 }
 
