@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using System.Drawing;
+
+namespace WindowsFormsApplication1
 {
     partial class Form_renshu
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_label = new System.Windows.Forms.Label();
+            this.btn_label = new MyLabel();
             this.btn_1 = new System.Windows.Forms.Button();
             this.btn_2 = new System.Windows.Forms.Button();
             this.btn_3 = new System.Windows.Forms.Button();
@@ -48,18 +50,28 @@
             // 
             // btn_label
             // 
+
+            Theme btn_label_theme = new Theme(
+                new Point(225, 29),
+                Color.Black,
+                new Font("Berlin Sans FB", 24F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)))
+                );
+
             this.btn_label.AutoSize = true;
-            this.btn_label.Font = new System.Drawing.Font("Berlin Sans FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_label.Location = new System.Drawing.Point(225, 31);
+            // this.btn_label.Font = new System.Drawing.Font("Berlin Sans FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_label.Font = btn_label_theme.font;
+            // this.btn_label.Location = new Point(225, 29);
+            this.btn_label.Location = btn_label_theme.location;
+            this.btn_label.theme = btn_label_theme;
             this.btn_label.Name = "btn_label";
             this.btn_label.Size = new System.Drawing.Size(0, 40);
             this.btn_label.TabIndex = 1;
             // 
             // btn_1
             // 
-            this.btn_1.Location = new System.Drawing.Point(35, 31);
+            this.btn_1.Location = new System.Drawing.Point(35, 29);
             this.btn_1.Name = "btn_1";
-            this.btn_1.Size = new System.Drawing.Size(75, 23);
+            this.btn_1.Size = new System.Drawing.Size(75, 21);
             this.btn_1.TabIndex = 0;
             this.btn_1.Text = "Show text";
             this.btn_1.UseVisualStyleBackColor = true;
@@ -67,9 +79,9 @@
             // 
             // btn_2
             // 
-            this.btn_2.Location = new System.Drawing.Point(35, 60);
+            this.btn_2.Location = new System.Drawing.Point(35, 55);
             this.btn_2.Name = "btn_2";
-            this.btn_2.Size = new System.Drawing.Size(122, 23);
+            this.btn_2.Size = new System.Drawing.Size(122, 21);
             this.btn_2.TabIndex = 2;
             this.btn_2.Text = "Replace and Resize";
             this.btn_2.UseVisualStyleBackColor = true;
@@ -77,9 +89,9 @@
             // 
             // btn_3
             // 
-            this.btn_3.Location = new System.Drawing.Point(35, 89);
+            this.btn_3.Location = new System.Drawing.Point(35, 82);
             this.btn_3.Name = "btn_3";
-            this.btn_3.Size = new System.Drawing.Size(106, 23);
+            this.btn_3.Size = new System.Drawing.Size(106, 21);
             this.btn_3.TabIndex = 3;
             this.btn_3.Text = "Color and Location";
             this.btn_3.UseVisualStyleBackColor = true;
@@ -87,9 +99,9 @@
             // 
             // btn_4
             // 
-            this.btn_4.Location = new System.Drawing.Point(35, 119);
+            this.btn_4.Location = new System.Drawing.Point(35, 110);
             this.btn_4.Name = "btn_4";
-            this.btn_4.Size = new System.Drawing.Size(75, 23);
+            this.btn_4.Size = new System.Drawing.Size(75, 21);
             this.btn_4.TabIndex = 12;
             this.btn_4.Text = "Reset";
             this.btn_4.UseVisualStyleBackColor = true;
@@ -98,9 +110,9 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(35, 196);
+            this.checkBox1.Location = new System.Drawing.Point(35, 181);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(83, 17);
+            this.checkBox1.Size = new System.Drawing.Size(80, 16);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Change text";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -109,9 +121,9 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(35, 219);
+            this.checkBox2.Location = new System.Drawing.Point(35, 202);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(84, 17);
+            this.checkBox2.Size = new System.Drawing.Size(80, 16);
             this.checkBox2.TabIndex = 5;
             this.checkBox2.Text = "Change size";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -120,9 +132,9 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(35, 242);
+            this.checkBox3.Location = new System.Drawing.Point(35, 223);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(89, 17);
+            this.checkBox3.Size = new System.Drawing.Size(87, 16);
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Text = "Change color";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -131,9 +143,9 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(35, 265);
+            this.checkBox4.Location = new System.Drawing.Point(35, 245);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(103, 17);
+            this.checkBox4.Size = new System.Drawing.Size(100, 16);
             this.checkBox4.TabIndex = 7;
             this.checkBox4.Text = "Change location";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -142,9 +154,9 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(35, 333);
+            this.radioButton1.Location = new System.Drawing.Point(35, 307);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(82, 17);
+            this.radioButton1.Size = new System.Drawing.Size(79, 16);
             this.radioButton1.TabIndex = 8;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Change text";
@@ -154,9 +166,9 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(35, 357);
+            this.radioButton2.Location = new System.Drawing.Point(35, 330);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(83, 17);
+            this.radioButton2.Size = new System.Drawing.Size(79, 16);
             this.radioButton2.TabIndex = 9;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Change size";
@@ -166,9 +178,9 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(35, 381);
+            this.radioButton3.Location = new System.Drawing.Point(35, 352);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(88, 17);
+            this.radioButton3.Size = new System.Drawing.Size(86, 16);
             this.radioButton3.TabIndex = 10;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Change color";
@@ -178,9 +190,9 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(35, 405);
+            this.radioButton4.Location = new System.Drawing.Point(35, 374);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(102, 17);
+            this.radioButton4.Size = new System.Drawing.Size(99, 16);
             this.radioButton4.TabIndex = 11;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Change location";
@@ -190,9 +202,9 @@
             // check_label
             // 
             this.check_label.AutoSize = true;
-            this.check_label.Location = new System.Drawing.Point(343, 242);
+            this.check_label.Location = new System.Drawing.Point(343, 223);
             this.check_label.Name = "check_label";
-            this.check_label.Size = new System.Drawing.Size(58, 13);
+            this.check_label.Size = new System.Drawing.Size(56, 12);
             this.check_label.TabIndex = 13;
             this.check_label.Text = "Yokohama";
             // 
@@ -200,7 +212,7 @@
             // 
             this.radio_label.AutoSize = true;
             this.radio_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radio_label.Location = new System.Drawing.Point(333, 369);
+            this.radio_label.Location = new System.Drawing.Point(333, 341);
             this.radio_label.Name = "radio_label";
             this.radio_label.Size = new System.Drawing.Size(209, 42);
             this.radio_label.TabIndex = 14;
@@ -209,17 +221,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(775, 421);
+            this.label1.Location = new System.Drawing.Point(775, 389);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(33, 12);
             this.label1.TabIndex = 15;
             this.label1.Text = "label1";
             // 
             // Form_renshu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 494);
+            this.ClientSize = new System.Drawing.Size(892, 456);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radio_label);
             this.Controls.Add(this.check_label);
@@ -247,7 +259,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_1;
-        private System.Windows.Forms.Label btn_label;
+        private MyLabel btn_label;
         private System.Windows.Forms.Button btn_2;
         private System.Windows.Forms.Button btn_3;
         private System.Windows.Forms.CheckBox checkBox1;

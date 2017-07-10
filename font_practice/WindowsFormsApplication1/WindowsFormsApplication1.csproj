@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Theme.cs" />
     <Compile Include="InitFont.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
         private void btn_4_Click(object sender, EventArgs e)
         {
             //btn_label.Text = String.Empty;
-            btn_label.ResetFont();
+            btn_label.ResetAll();
             //InitFont.MyLabel();
         }
 
