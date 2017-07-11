@@ -14,8 +14,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form_renshu : Form
     {
-        private String default_text = "Yokohama";
-        
+       
         public Form_renshu()
         {
             InitializeComponent();
@@ -42,9 +41,7 @@ namespace WindowsFormsApplication1
 
         private void btn_4_Click(object sender, EventArgs e)
         {
-            //btn_label.Text = String.Empty;
             btn_label.ResetAll();
-            //InitFont.MyLabel();
         }
 
         //Check Box
@@ -54,8 +51,7 @@ namespace WindowsFormsApplication1
                 check_label.Text = "Fahne Inc";
             else
             {
-                Style.Formatter formatter = new Style.Formatter();
-                formatter.setup_Label(check_label);
+                check_label.ResetAll();
             }
 
         }
@@ -68,9 +64,7 @@ namespace WindowsFormsApplication1
                 check_label.Font = new Font("Arial", RondomNum.get_rnd_size());
             else
             {
-                //Style.Formatter formatter = new Style.Formatter();
-                //formatter.setup_Label(check_label);
-                check_label.ResetFont();
+                check_label.ResetAll();
             }
         }
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -79,8 +73,7 @@ namespace WindowsFormsApplication1
                 check_label.ForeColor = Color.Yellow;
             else
             {
-                Style.Formatter formatter = new Style.Formatter();
-                formatter.setup_Label(check_label);
+                check_label.ResetAll();
             }
         }
 
@@ -91,8 +84,7 @@ namespace WindowsFormsApplication1
                 check_label.Location = new Point(RondomNum.get_rnd_location(), RondomNum.get_rnd_location());
             else
             {
-                Style.Formatter formatter = new Style.Formatter();
-                formatter.setup_Label(check_label);
+                check_label.ResetAll();
             }
         }
         
@@ -107,30 +99,10 @@ namespace WindowsFormsApplication1
                 radio_label.Font = new Font("Arial", RondomNum.get_rnd_size());
             else if (radioButton3.Checked)
                 radio_label.ForeColor = Color.Blue;
-            else
+            else if (radioButton4.Checked)
                 radio_label.Location = new Point(RondomNum.get_rnd_location(), RondomNum.get_rnd_location());
-        }
-
-        private void Form_renshu_Load(object sender, EventArgs e)
-        {
-            btn_label.Text = String.Empty;
-            radio_label.Text = "Minatomirai";
-
-        }
-    }
-}
-
-namespace Style
-{
-    class Formatter
-    {
-        public void setup_Label(Label label)
-        {
-            label.AutoSize = true;
-            label.Location = new Point(343, 242);
-            label.Font = new Font("PMingLiU", 9);
-            label.Text = "Yokohama";
-            label.ForeColor = Color.Black;
+            else
+                radio_label.ResetAll();
         }
     }
 }

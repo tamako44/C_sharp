@@ -9,15 +9,17 @@ namespace WindowsFormsApplication1
 {
     public struct Theme
     {
-        public Theme(Point location, Color color, Font font)
+        public Theme(Point location, Color color, Font font, string text)
         {
-            this.location = location;
-            this.color = color;
-            this.font = font;
+            this.Location = location;
+            this.Color = color;
+            this.Font = font;
+            this.Text = text;
         }
 
-        public Point location;
-        public Color color;
-        public Font font;
+        public Point Location;
+        public Color Color;
+        public Font Font;
+        public string Text;
     }
 }

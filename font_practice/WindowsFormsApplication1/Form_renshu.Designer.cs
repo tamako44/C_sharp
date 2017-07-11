@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsApplication1
 {
@@ -43,29 +44,30 @@ namespace WindowsFormsApplication1
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.check_label = new System.Windows.Forms.Label();
-            this.radio_label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.check_label = new MyLabel();
+            this.radio_label = new MyLabel();
             this.SuspendLayout();
             // 
             // btn_label
             // 
 
-            Theme btn_label_theme = new Theme(
+            Theme btn_label_theme = new Theme
+            (
                 new Point(225, 29),
                 Color.Black,
-                new Font("Berlin Sans FB", 24F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)))
-                );
-
+                new Font("Berlin Sans FB", 24F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
+                ""
+            );
             this.btn_label.AutoSize = true;
             // this.btn_label.Font = new System.Drawing.Font("Berlin Sans FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_label.Font = btn_label_theme.font;
+            this.btn_label.Font = btn_label_theme.Font;
             // this.btn_label.Location = new Point(225, 29);
-            this.btn_label.Location = btn_label_theme.location;
+            this.btn_label.Location = btn_label_theme.Location;
             this.btn_label.theme = btn_label_theme;
             this.btn_label.Name = "btn_label";
             this.btn_label.Size = new System.Drawing.Size(0, 40);
             this.btn_label.TabIndex = 1;
+            this.btn_label.Text = btn_label_theme.Text;
             // 
             // btn_1
             // 
@@ -200,39 +202,49 @@ namespace WindowsFormsApplication1
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // check_label
-            // 
+            //
+            Theme check_label_theme = new Theme
+            (
+                new Point(343, 223),
+                Color.Black,
+                new Font("Arial", 20F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
+               "Yokohama"
+            );
             this.check_label.AutoSize = true;
-            this.check_label.Location = new System.Drawing.Point(343, 223);
+            //this.check_label.Location = new System.Drawing.Point(343, 223);
+            this.check_label.Location = check_label_theme.Location;
+            this.check_label.Font = check_label_theme.Font;
             this.check_label.Name = "check_label";
             this.check_label.Size = new System.Drawing.Size(56, 12);
             this.check_label.TabIndex = 13;
-            this.check_label.Text = "Yokohama";
+            //this.check_label.Text = "Yokohama";
+            this.check_label.Text = check_label_theme.Text;
             // 
             // radio_label
             // 
+            Theme radio_label_theme = new Theme
+            (
+                new Point(333, 3411),
+                Color.Black,
+                new Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                "Minatomirai"             
+            );
             this.radio_label.AutoSize = true;
-            this.radio_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radio_label.Location = new System.Drawing.Point(333, 341);
+            //this.radio_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.radio_label.Location = new System.Drawing.Point(333, 341);
+            this.radio_label.Location = radio_label_theme.Location;
+            this.radio_label.Font = radio_label_theme.Font;
             this.radio_label.Name = "radio_label";
             this.radio_label.Size = new System.Drawing.Size(209, 42);
             this.radio_label.TabIndex = 14;
-            this.radio_label.Text = "Minatomirai";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(775, 389);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 12);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "label1";
+            //this.radio_label.Text = "Minatomirai";
+            this.radio_label.Text = radio_label_theme.Text;
             // 
             // Form_renshu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 456);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.radio_label);
             this.Controls.Add(this.check_label);
             this.Controls.Add(this.btn_4);
@@ -250,11 +262,11 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.btn_1);
             this.Name = "Form_renshu";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form_renshu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
 
         #endregion
 
@@ -271,9 +283,8 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Button btn_4;
-        private System.Windows.Forms.Label check_label;
-        private System.Windows.Forms.Label radio_label;
-        private System.Windows.Forms.Label label1;
+        private MyLabel check_label;
+        private MyLabel radio_label;
     }
 }
 

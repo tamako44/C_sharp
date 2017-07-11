@@ -10,14 +10,18 @@ namespace WindowsFormsApplication1
 {
     public class MyLabel : System.Windows.Forms.Label
     {
+
         public Theme theme;
         
+
         public void ResetAll()
         {
-            this.Location = theme.Location;
-            this.ForeColor = theme.Color;
-            this.Font = theme.Font;
-            this.Text = theme.Text; 
+            
+            ResetText();
+
+
+            this.Location = theme.location;
+            this.ForeColor = theme.color; 
         }
 
 
