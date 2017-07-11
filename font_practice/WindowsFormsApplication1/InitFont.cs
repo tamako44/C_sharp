@@ -10,8 +10,9 @@ namespace WindowsFormsApplication1
 {
     public class MyLabel : System.Windows.Forms.Label
     {
-        public Theme theme;
-        
+        //public Theme theme;
+        public Theme theme { get; set; }
+
         public void ResetAll()
         {
             this.Location = theme.Location;

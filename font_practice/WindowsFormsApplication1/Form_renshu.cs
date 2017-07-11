@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         public Form_renshu()
         {
             InitializeComponent();
+            //call my method  
         }
 
         //Button
@@ -99,10 +100,10 @@ namespace WindowsFormsApplication1
                 radio_label.Font = new Font("Arial", RondomNum.get_rnd_size());
             else if (radioButton3.Checked)
                 radio_label.ForeColor = Color.Blue;
-            else if (radioButton4.Checked)
-                radio_label.Location = new Point(RondomNum.get_rnd_location(), RondomNum.get_rnd_location());
             else
-                radio_label.ResetAll();
+                radio_label.Location = new Point(RondomNum.get_rnd_location(), RondomNum.get_rnd_location());
+            //else
+            //    radio_label.ResetAll();
         }
     }
 }

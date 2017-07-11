@@ -210,34 +210,31 @@ namespace WindowsFormsApplication1
                 new Font("Arial", 20F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
                "Yokohama"
             );
+            this.check_label.theme = check_label_theme;
             this.check_label.AutoSize = true;
-            //this.check_label.Location = new System.Drawing.Point(343, 223);
             this.check_label.Location = check_label_theme.Location;
             this.check_label.Font = check_label_theme.Font;
             this.check_label.Name = "check_label";
             this.check_label.Size = new System.Drawing.Size(56, 12);
             this.check_label.TabIndex = 13;
-            //this.check_label.Text = "Yokohama";
             this.check_label.Text = check_label_theme.Text;
             // 
             // radio_label
             // 
             Theme radio_label_theme = new Theme
             (
-                new Point(333, 3411),
+                new Point(333, 341),
                 Color.Black,
-                new Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                new Font("Microsoft Sans Serif", 27F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 "Minatomirai"             
             );
             this.radio_label.AutoSize = true;
-            //this.radio_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.radio_label.Location = new System.Drawing.Point(333, 341);
+            this.radio_label.theme = radio_label_theme;
             this.radio_label.Location = radio_label_theme.Location;
             this.radio_label.Font = radio_label_theme.Font;
             this.radio_label.Name = "radio_label";
             this.radio_label.Size = new System.Drawing.Size(209, 42);
             this.radio_label.TabIndex = 14;
-            //this.radio_label.Text = "Minatomirai";
             this.radio_label.Text = radio_label_theme.Text;
             // 
             // Form_renshu

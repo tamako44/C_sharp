@@ -17,9 +17,16 @@ namespace WindowsFormsApplication1
             this.Text = text;
         }
 
-        public Point Location;
-        public Color Color;
-        public Font Font;
-        public string Text;
+        //public Point Location;
+        //public Color Color;
+        //public Font Font;
+        //public string Text;
+
+        //無法變更
+        public Point Location { get; private set; }
+        public Color Color { get; private set; }
+        public Font Font { get; private set; }
+        public String Text { get; private set; }
     }
+
 }
