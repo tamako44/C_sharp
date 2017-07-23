@@ -45,9 +45,28 @@ namespace OSK
 
         #endregion
 
-        private void GenAphBtn()
+        private KeyButton[] AphKeyList;
+        private KeyButton[] ModiKeyList;
+
+        private void InitializeKeyboard()
         {
-            Button[] btn = new Button[30];
+            AphKeyList = GenAphBtn();
+            ModiKeyList = GenModifyBtn();
+
+            foreach(KeyButton key in AphKeyList)
+            {
+                this.Controls.Add(key);
+            }
+
+			foreach (KeyButton key in ModiKeyList)
+			{
+				this.Controls.Add(key);
+			}
+        }
+
+        private KeyButton[] GenAphBtn()
+        {
+            KeyButton[] btn = new KeyButton[30];
             int w = 66;
             int oh_1 = 87;
             int oh_2 = 107;
@@ -60,7 +79,7 @@ namespace OSK
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    btn[i] = new Button();
+                    btn[i] = new KeyButton();
                     btn[i].Name = AphArray[btnCount]; //"btn_" + j + "-" + i;
                     btn[i].Text = btn[i].Name;
                     btn[i].Size = new System.Drawing.Size(64, 54);
@@ -82,16 +101,16 @@ namespace OSK
                     }
 
                     
-                    this.Controls.Add(btn[i]);
+                    //this.Controls.Add(btn[i]);
                     btnCount++;
                 }
-
             }
+            return btn;
         }
 
-        public void GenModifyBtn()
+        public KeyButton[] GenModifyBtn()
         {
-            Button[] btn = new Button[11];
+            KeyButton[] btn = new KeyButton[11];
             //int btnCount = 0;
 
             string[] ModifyArray = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
@@ -101,15 +120,17 @@ namespace OSK
 
             for (int a = 0; a < 11 ; a ++)
             {
-                btn[a] = new Button();
+                btn[a] = new KeyButton();
                 btn[a].Name = ModifyArray[a]; //"btn_" + j + "-" + i;
                 btn[a].Text = btn[a].Name;
                 btn[a].Size = new System.Drawing.Size(Size_Y[a], 54);
                 btn[a].Location = new System.Drawing.Point(Location_X[a], Location_Y[a]);
 
-                this.Controls.Add(btn[a]);
+                //this.Controls.Add(btn[a]);
 
             }
+
+            return btn;
 
         }
 
