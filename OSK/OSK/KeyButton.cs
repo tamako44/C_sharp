@@ -15,12 +15,12 @@ namespace OSK
 
         protected override void OnMouseDown(MouseEventArgs mevent)
         {
-            this.BackColor = Color.Yellow;
+            this.BackColor = Color.HotPink;
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
         {
-            this.BackColor = default(Color);
+            this.BackColor = Color.DimGray;
             //this.BackColor = SystemColors.ButtonFace;
             //this.UseVisualStyleBackColor = True;
         }

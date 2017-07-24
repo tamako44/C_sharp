@@ -7,10 +7,15 @@ using System.Windows.Forms;
 
 namespace OSK
 {
-    class CreateKey
+    interface IKeyboard
+    {
+        void CreateLayout();
+    }
+
+    class CreateLayoutKey
     {
 
-        public KeyButton[] CreateKeys(string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeX)
+        public KeyButton[] CreateLayout(string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeX)
         {
             int TotalBtn = TextArr.Length;
             KeyButton[] btn = new KeyButton[TotalBtn];
@@ -27,6 +32,11 @@ namespace OSK
 
             return btn;
 
+        }
+
+        class CreateLayoutDraw
+        {
+            
         }
     }
 
