@@ -52,7 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ILayout.cs" />
+    <Compile Include="CreateKey.cs" />
     <Compile Include="Layout.cs" />
     <Compile Include="LayoutStruct.cs" />
     <Compile Include="Program.cs" />

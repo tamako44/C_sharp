@@ -46,24 +46,37 @@ namespace OSK
         #endregion
 
         private KeyButton[] AphKeyArr;
-        private KeyButton[] ModiKeyArr;
+       // private KeyButton[] ModiKeyArr;
 
         private void InitializeKeyboard()
         {
             this.TopMost = true;
 
-            AphKeyArr = GenAphBtn();
-            ModiKeyArr = GenModifyBtn();
+            CreateKey CreateKey = new CreateKey();
+            Layout1 Layout1 = new Layout1();
 
-            foreach(KeyButton key in AphKeyArr)
+            AphKeyArr = CreateKey.CreateKeys(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeX);
+            //ModiKeyArr = GenModifyBtn();
+
+            foreach (KeyButton key in AphKeyArr)
             {
                 this.Controls.Add(key);
             }
 
-			foreach (KeyButton key in ModiKeyArr)
-			{
-				this.Controls.Add(key);
-			}
+
+
+            //         AphKeyArr = GenAphBtn();
+            //         ModiKeyArr = GenModifyBtn();
+
+            //         foreach(KeyButton key in AphKeyArr)
+            //         {
+            //             this.Controls.Add(key);
+            //         }
+
+            //foreach (KeyButton key in ModiKeyArr)
+            //{
+            //	this.Controls.Add(key);
+            //}
         }
 
         private KeyButton[] GenAphBtn()
