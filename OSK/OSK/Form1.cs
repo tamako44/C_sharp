@@ -15,8 +15,20 @@ namespace OSK
         public Form1()
         {
             InitializeComponent();
-            GenAphBtn();
-            GenModifyBtn();
+            InitializeKeyboard();
+           // GenAphBtn();
+            //GenModifyBtn();
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams p = base.CreateParams;
+                p.ExStyle |= 0x8000000; // WS_EX_NOACTIVATE
+                return p;
+            }
+        }
+
     }
 }

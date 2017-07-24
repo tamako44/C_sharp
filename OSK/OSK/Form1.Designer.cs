@@ -45,20 +45,22 @@ namespace OSK
 
         #endregion
 
-        private KeyButton[] AphKeyList;
-        private KeyButton[] ModiKeyList;
+        private KeyButton[] AphKeyArr;
+        private KeyButton[] ModiKeyArr;
 
         private void InitializeKeyboard()
         {
-            AphKeyList = GenAphBtn();
-            ModiKeyList = GenModifyBtn();
+            //topMost
 
-            foreach(KeyButton key in AphKeyList)
+            AphKeyArr = GenAphBtn();
+            ModiKeyArr = GenModifyBtn();
+
+            foreach(KeyButton key in AphKeyArr)
             {
                 this.Controls.Add(key);
             }
 
-			foreach (KeyButton key in ModiKeyList)
+			foreach (KeyButton key in ModiKeyArr)
 			{
 				this.Controls.Add(key);
 			}
@@ -79,29 +81,28 @@ namespace OSK
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    btn[i] = new KeyButton();
-                    btn[i].Name = AphArray[btnCount]; //"btn_" + j + "-" + i;
-                    btn[i].Text = btn[i].Name;
-                    btn[i].Size = new System.Drawing.Size(64, 54);
+                    btn[btnCount] = new KeyButton();
+                    btn[btnCount].Name = AphArray[btnCount]; 
+                    btn[btnCount].Text = btn[btnCount].Name;
+                    btn[btnCount].Size = new System.Drawing.Size(64, 54);
 
                     switch (i)
                     {
                         case 0:
-                            btn[i].Location = new System.Drawing.Point(oh_1, 85);
+                            btn[btnCount].Location = new System.Drawing.Point(oh_1, 85);
                             oh_1 += w;
                             break;
                         case 1:
-                            btn[i].Location = new System.Drawing.Point(oh_2, 141);
+                            btn[btnCount].Location = new System.Drawing.Point(oh_2, 141);
                             oh_2 += w;
                             break;
                         default:
-                            btn[i].Location = new System.Drawing.Point(oh_3, 197);
+                            btn[btnCount].Location = new System.Drawing.Point(oh_3, 197);
                             oh_3 += w;
                             break;
                     }
-
-                    
-                    //this.Controls.Add(btn[i]);
+                 
+                    this.Controls.Add(btn[btnCount]);
                     btnCount++;
                 }
             }
@@ -113,7 +114,8 @@ namespace OSK
             KeyButton[] btn = new KeyButton[11];
             //int btnCount = 0;
 
-            string[] ModifyArray = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
+            string[] ModiNameArr = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
+            string[] ModiTextArr = new string[] { "{BS}", "{ENTER}", "+", "+", "^", " ", " ", " ", "<", ">", " " };
             int[] Location_X = new int[] { 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
             int[] Location_Y = new int[] { 85, 141, 197, 197, 253, 253, 253, 253, 253, 253, 253 };
             int[] Size_Y = new int[] { 117, 97, 64, 64, 64, 64, 64, 396, 64, 64, 64};
@@ -121,8 +123,8 @@ namespace OSK
             for (int a = 0; a < 11 ; a ++)
             {
                 btn[a] = new KeyButton();
-                btn[a].Name = ModifyArray[a]; //"btn_" + j + "-" + i;
-                btn[a].Text = btn[a].Name;
+                btn[a].Name = ModiTextArr[a]; //"btn_" + j + "-" + i;
+                btn[a].Text = ModiNameArr[a];
                 btn[a].Size = new System.Drawing.Size(Size_Y[a], 54);
                 btn[a].Location = new System.Drawing.Point(Location_X[a], Location_Y[a]);
 

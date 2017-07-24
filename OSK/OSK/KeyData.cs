@@ -14,8 +14,9 @@ namespace OSK
         public int[] Layout_1_LocaX_Arr = new int[30];
         public int[] Layout_1_LocaY_Arr = new int[30];
 
-		public string[] ModifyArray = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
-		public int[] Location_X = new int[] { 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
+		public string[] ModiNameArr = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
+        string[] ModiTextArr = new string[] { "{BS}", "{ENTER}", "+", "+", "^", " ", " ", "<", ">", " " };
+        public int[] Location_X = new int[] { 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
 		public int[] Location_Y = new int[] { 85, 141, 197, 197, 253, 253, 253, 253, 253, 253, 253 };
 		public int[] Size_Y = new int[] { 117, 97, 64, 64, 64, 64, 64, 396, 64, 64, 64 };
 
