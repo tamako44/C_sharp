@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace OSK
 {
@@ -27,7 +28,7 @@ namespace OSK
                 btn[a].Name = NameArr[a];
                 btn[a].Size = new System.Drawing.Size(SizeX[a], 54);
                 btn[a].Location = new System.Drawing.Point(LocaXArr[a], LocaYArr[a]);
-
+                //btn[a].BackColor = Color.DimGray;
             }
 
             return btn;

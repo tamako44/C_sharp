@@ -23,6 +23,7 @@ namespace OSK
             this.BackColor = Color.DimGray;
             //this.BackColor = SystemColors.ButtonFace;
             //this.UseVisualStyleBackColor = True;
+            //ResetBackColor();
         }
 
 

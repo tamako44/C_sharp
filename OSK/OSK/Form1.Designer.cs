@@ -8,6 +8,7 @@ namespace OSK
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private Panel Panel1;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -34,9 +35,9 @@ namespace OSK
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 529);
+            this.ClientSize = new System.Drawing.Size(965, 488);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -52,15 +53,17 @@ namespace OSK
         {
             this.TopMost = true;
 
-            CreateKey CreateKey = new CreateKey();
+            SetPanel1();
+
+            CreateLayoutKey CreateKey = new CreateLayoutKey();
             Layout1 Layout1 = new Layout1();
 
-            AphKeyArr = CreateKey.CreateKeys(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeX);
+            AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeX);
             //ModiKeyArr = GenModifyBtn();
 
             foreach (KeyButton key in AphKeyArr)
             {
-                this.Controls.Add(key);
+                Panel1.Controls.Add(key);
             }
 
 
@@ -77,6 +80,16 @@ namespace OSK
             //{
             //	this.Controls.Add(key);
             //}
+        }
+
+        private void SetPanel1()
+        {
+            this.Panel1 = new System.Windows.Forms.Panel();
+            this.Panel1.Location = new System.Drawing.Point(0, 0);
+            this.Panel1.Name = "panel1";
+            this.Panel1.Size = this.ClientSize;
+            this.Panel1.TabIndex = 0;
+            this.Controls.Add(Panel1);
         }
 
         private KeyButton[] GenAphBtn()
