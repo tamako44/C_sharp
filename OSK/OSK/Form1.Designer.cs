@@ -50,7 +50,7 @@ namespace OSK
 
         private void InitializeKeyboard()
         {
-            //topMost
+            this.TopMost = true;
 
             AphKeyArr = GenAphBtn();
             ModiKeyArr = GenModifyBtn();

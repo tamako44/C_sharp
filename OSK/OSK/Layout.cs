@@ -7,18 +7,37 @@ using System.Drawing;
 
 namespace OSK
 {
-    class KeyDataPool
+    class Layout : IKeyboard
     {
 
-        public string[] Layout_1_AphArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?" };
-        public int[] Layout_1_LocaX_Arr = new int[30];
-        public int[] Layout_1_LocaY_Arr = new int[30];
+        private KeyButton[] AphKeyArr;
+        private KeyButton[] ModiKeyArr;
 
-		public string[] ModiNameArr = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
-        string[] ModiTextArr = new string[] { "{BS}", "{ENTER}", "+", "+", "^", " ", " ", "<", ">", " " };
+        void IKeyboard.CreateKey()
+        {
+            AphKeyArr = GenAphBtn();
+            ModiKeyArr = GenModifyBtn();
+
+            foreach (KeyButton key in AphKeyArr)
+            {
+                this.Controls.Add(key);
+            }
+
+            foreach (KeyButton key in ModiKeyArr)
+            {
+                this.Controls.Add(key);
+            }
+        }
+
+        public string[] L1AphArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?" };
+        public int[] L1LocaXArr = new int[] { 87, 153, 219, 285, 351, 417, 483, 549, 615, 681, 107, 173, 239, 305, 371, 437, 503, 569, 635, 701, 140, 206, 272, 338, 404, 470, 536, 602, 668, 734 };
+        public int[] L1LocaYArr = new int[] { 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 141, 141, 141, 141, 141, 141, 141, 141, 141, 141, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, };
+
+		public string[] L1ModiNameArr = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
+        string[] L1ModiTextArr = new string[] { "{BS}", "{ENTER}", "+", "+", "^", " ", " ", "<", ">", " " };
         public int[] Location_X = new int[] { 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
 		public int[] Location_Y = new int[] { 85, 141, 197, 197, 253, 253, 253, 253, 253, 253, 253 };
-		public int[] Size_Y = new int[] { 117, 97, 64, 64, 64, 64, 64, 396, 64, 64, 64 };
+        public int[] L1SizeY = new int[] { 117, 97, 64, 64, 64, 64, 64, 396, 64, 64, 64 };
 
         private void Layout_1_Loca()
         {
@@ -33,7 +52,7 @@ namespace OSK
                 for (int j = 0; j < 10; j++)
                 {
                     //btn[i] = new Button();
-                    //btn[i].Name = AphArray[btnCount]; //"btn_" + j + "-" + i;
+                    //btn[i].Name = AphArray[btnCount];
                     //btn[i].Text = btn[i].Name;
                     //btn[i].Size = new System.Drawing.Size(64, 54);
 
@@ -65,6 +84,8 @@ namespace OSK
                 }
             }
         }
+
+
 
     }
 }

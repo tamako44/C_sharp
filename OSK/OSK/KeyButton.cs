@@ -6,21 +6,26 @@ namespace OSK
 {
     public class KeyButton : Button
     {
-
+        public bool True { get; private set; }
 
         protected override void OnClick(EventArgs e)
         {
             SendKeys.Send(this.Name);
-            ChangeKeyColor();
         }
 
-        protected void ChangeKeyColor()
+        protected override void OnMouseDown(MouseEventArgs mevent)
         {
-            if (BackColor != Color.Yellow)
-                this.BackColor = Color.Yellow;
-            else
-                ResetBackColor();
-
+            this.BackColor = Color.Yellow;
         }
+
+        protected override void OnMouseUp(MouseEventArgs mevent)
+        {
+            this.BackColor = default(Color);
+            //this.BackColor = SystemColors.ButtonFace;
+            //this.UseVisualStyleBackColor = True;
+        }
+
+
+
     }
 }

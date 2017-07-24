@@ -52,7 +52,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="KeyData.cs" />
+    <Compile Include="ILayout.cs" />
+    <Compile Include="Layout.cs" />
     <Compile Include="LayoutStruct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
