@@ -58,10 +58,12 @@ namespace OSK
 
             SetPanel1();
             SetPanel2();
+            GenLayout1();
+            GenLayout2();
 
 
             //this.Panel2.Visible = false;
-            
+
 
             //ButtonLayout Layout = new Layout1();
             //ButtonLayout Layout2 = new Layout2();
@@ -88,13 +90,7 @@ namespace OSK
             this.Panel1.Visible = true;
             this.Controls.Add(Panel1);
 
-            ButtonLayout Layout = new Layout1();
-            AphKeyArr = Layout.CreateLayout(Panel1, Panel2);
-
-            foreach (KeyButton key in AphKeyArr)
-            {
-                Panel1.Controls.Add(key);
-            }
+            //GenLayout2();
         }
 
         private void SetPanel2()
@@ -107,6 +103,22 @@ namespace OSK
             this.Panel2.Visible = false;
             this.Controls.Add(Panel2);
 
+            //GenLayout2();
+        }
+
+        private void GenLayout1()
+        {
+            ButtonLayout Layout = new Layout1();
+            AphKeyArr = Layout.CreateLayout(Panel1, Panel2);
+
+            foreach (KeyButton key in AphKeyArr)
+            {
+                Panel1.Controls.Add(key);
+            }
+        }
+
+        private void GenLayout2()
+        {
             ButtonLayout Layout = new Layout2();
             AphKeyArr = Layout.CreateLayout();
 
@@ -115,6 +127,7 @@ namespace OSK
                 Panel2.Controls.Add(key);
             }
         }
+
 
         private KeyButton[] GenAphBtn()
         {
