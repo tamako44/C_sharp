@@ -39,7 +39,7 @@ namespace OSK
                 switch (TextArr[a])
                 {
                     case "Switch":
-                        btn[a] = new SwitchButton(this.P1, this.P2);
+                        btn[a] = new SwitchButton(this.Panel1 , this Panel2);
                         break;
                     default:
                         btn[a] = new KeyButton();
