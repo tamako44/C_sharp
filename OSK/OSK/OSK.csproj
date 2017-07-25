@@ -53,11 +53,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateKey.cs" />
-    <Compile Include="Layout.cs" />
+    <Compile Include="ButtonLayout.cs" />
     <Compile Include="LayoutStruct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SwitchKB.cs" />
+    <Compile Include="SwitchButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

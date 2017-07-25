@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using static OSK.ButtonLayout;
 
 namespace OSK
 {
@@ -57,12 +58,14 @@ namespace OSK
             SetPanel1();
 
             CreateLayoutKey CreateKey = new CreateLayoutKey();
-            Layout1 Layout1 = new Layout1();
-            Layout2 Layout2 = new Layout2();
+            ButtonLayout Layout = new Layout1();
+            //ButtonLayout Layout2 = new Layout2();
 
-            AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
+            //AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
             //AphKeyArr = CreateKey.CreateLayout(Layout2.L2TextArr, Layout2.L2NameArr, Layout2.L2LocaXArr, Layout2.L2LocaYArr, Layout2.L2SizeXArr, Layout2.L2SizeYArr);
-            //ModiKeyArr = GenModifyBtn();
+
+            AphKeyArr = Layout.CreateLayout();
+            //Layout.TextArr, Layout.NameArr, Layout.LocaXArr, Layout.LocaYArr, Layout.SizeXArr, Layout.SizeYArr
 
             foreach (KeyButton key in AphKeyArr)
             {
