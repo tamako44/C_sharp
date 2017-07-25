@@ -120,7 +120,7 @@ namespace OSK
         private void GenLayout2()
         {
             ButtonLayout Layout = new Layout2();
-            AphKeyArr = Layout.CreateLayout();
+            AphKeyArr = Layout.CreateLayout(Panel1, Panel2);
 
             foreach (KeyButton key in AphKeyArr)
             {

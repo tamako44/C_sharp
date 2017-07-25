@@ -11,9 +11,13 @@ namespace OSK
     {
         
 
-        private Panel Panel1;
-        private Panel Panel2;
-        public SwitchButton(Panel Panel1, Panel Panel2){}
+        private Panel P1;
+        private Panel P2;
+        public SwitchButton(Panel Panel1, Panel Panel2)
+        {
+            P1 = Panel1;
+            P2 = Panel2;
+        }
 
         protected override void OnClick(EventArgs e)
         {
@@ -36,8 +40,6 @@ namespace OSK
                 Console.WriteLine(PanelStatus);
                 P1.Visible = false;
                 P2.Visible = true;
-                //Form1.Panel1.Hide();
-                //SendKeys.Send("aaa");
             }
             else
             {

@@ -11,8 +11,10 @@ namespace OSK
 {
     interface IKeyGen
     {
-        KeyButton[] CreateLayout();
+        KeyButton[] CreateLayout(Panel Panel1, Panel Panel2);
     }
+
+
     class ButtonLayout : IKeyGen
     {
         
@@ -26,7 +28,7 @@ namespace OSK
 
         
 
-        public KeyButton[] CreateLayout()
+        public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2)
         {
             //string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeXArr, int[] SizeYArr
 
@@ -39,7 +41,7 @@ namespace OSK
                 switch (TextArr[a])
                 {
                     case "Switch":
-                        btn[a] = new SwitchButton(this.Panel1 , this Panel2);
+                        btn[a] = new SwitchButton(Panel1 , Panel2);
                         break;
                     default:
                         btn[a] = new KeyButton();
@@ -81,7 +83,7 @@ namespace OSK
         protected internal class Layout2 : ButtonLayout
         {
 
-            private string[] L2TextArr = new string[] { "Tab", "!", "@", "#", "$", "%", " & ", "1", "2", "3", "BS", "<", "(", ")", "-", "_", "=", "+", "4", "5", "6", "Enter", ">", "\\", ";", ":", "\"", "*", "/", "7", "8", "9", "&123", "Ctrl", "☺", "<", ">", "Space", "0", ".", "Switch" };
+            private string[] L2TextArr = new string[] { "Tab", "!", "@", "#", "$", "%", "'&", "1", "2", "3", "BS", "<", "(", ")", "-", "_", "=", "+", "4", "5", "6", "Enter", ">", "\\", ";", ":", "\"", "*", "/", "7", "8", "9", "&123", "Ctrl", "☺", "<", ">", "Space", "0", ".", "Switch" };
             private string[] L2NameArr = new string[] { "{TAB}", "!", "@", "#", "$", "%", "&", "1", "2", "3", "{BS}", "<", "(", ")", "-", "_", "=", "+", "4", "5", "6", "{ENTER}", ">", "\\", ";", ":", "\"", "*", "/", "7", "8", "9", "&123", "^", "☺", "<", ">", " ", "0", ".", " " };
             private int[] L2LocaXArr = new int[] { 74, 140, 206, 272, 338, 404, 470, 568, 634, 700, 766, 74, 140, 206, 272, 338, 404, 470, 568, 634, 700, 766, 74, 140, 206, 272, 338, 404, 470, 568, 634, 700, 74, 140, 206, 272, 338, 404, 568, 700, 766 };
             private int[] L2LocaYArr = new int[] { 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 141, 141, 141, 141, 141, 141, 141, 141, 141, 141, 141, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 253, 253, 253, 253, 253, 253, 253, 253, 253 };
@@ -100,6 +102,14 @@ namespace OSK
         }
 
 
+    }
+
+    class DrawLayout : IKeyGen
+    {
+        public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2)
+        {
+            return null;
+        }
     }
 
 
