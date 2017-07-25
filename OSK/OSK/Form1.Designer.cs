@@ -58,7 +58,7 @@ namespace OSK
             CreateLayoutKey CreateKey = new CreateLayoutKey();
             Layout1 Layout1 = new Layout1();
 
-            AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeX);
+            AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
             //ModiKeyArr = GenModifyBtn();
 
             foreach (KeyButton key in AphKeyArr)

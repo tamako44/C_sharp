@@ -16,7 +16,7 @@ namespace OSK
     class CreateLayoutKey
     {
 
-        public KeyButton[] CreateLayout(string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeX)
+        public KeyButton[] CreateLayout(string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeXArr, int[] SizeYArr)
         {
             int TotalBtn = TextArr.Length;
             KeyButton[] btn = new KeyButton[TotalBtn];
@@ -26,9 +26,9 @@ namespace OSK
                 btn[a] = new KeyButton();
                 btn[a].Text = TextArr[a];
                 btn[a].Name = NameArr[a];
-                btn[a].Size = new System.Drawing.Size(SizeX[a], 54);
+                btn[a].Size = new System.Drawing.Size(SizeXArr[a], SizeYArr[a]);
                 btn[a].Location = new System.Drawing.Point(LocaXArr[a], LocaYArr[a]);
-                //btn[a].BackColor = Color.DimGray;
+                btn[a].BackColor = Color.DimGray;
             }
 
             return btn;
