@@ -8,7 +8,7 @@ namespace OSK
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private Panel Panel1;
+        public Panel Panel1;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -35,9 +35,10 @@ namespace OSK
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 488);
+            this.ClientSize = new System.Drawing.Size(1448, 813);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -57,29 +58,16 @@ namespace OSK
 
             CreateLayoutKey CreateKey = new CreateLayoutKey();
             Layout1 Layout1 = new Layout1();
+            Layout2 Layout2 = new Layout2();
 
             AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
+            //AphKeyArr = CreateKey.CreateLayout(Layout2.L2TextArr, Layout2.L2NameArr, Layout2.L2LocaXArr, Layout2.L2LocaYArr, Layout2.L2SizeXArr, Layout2.L2SizeYArr);
             //ModiKeyArr = GenModifyBtn();
 
             foreach (KeyButton key in AphKeyArr)
             {
                 Panel1.Controls.Add(key);
             }
-
-
-
-            //         AphKeyArr = GenAphBtn();
-            //         ModiKeyArr = GenModifyBtn();
-
-            //         foreach(KeyButton key in AphKeyArr)
-            //         {
-            //             this.Controls.Add(key);
-            //         }
-
-            //foreach (KeyButton key in ModiKeyArr)
-            //{
-            //	this.Controls.Add(key);
-            //}
         }
 
         private void SetPanel1()

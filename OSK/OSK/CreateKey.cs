@@ -29,6 +29,7 @@ namespace OSK
                 btn[a].Size = new System.Drawing.Size(SizeXArr[a], SizeYArr[a]);
                 btn[a].Location = new System.Drawing.Point(LocaXArr[a], LocaYArr[a]);
                 btn[a].BackColor = Color.DimGray;
+                btn[a].ForeColor = Color.White;
             }
 
             return btn;

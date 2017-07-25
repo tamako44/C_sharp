@@ -6,25 +6,30 @@ namespace OSK
 {
     public class KeyButton : Button
     {
-        public bool True { get; private set; }
 
         protected override void OnClick(EventArgs e)
         {
+            base.OnClick(e);
             SendKeys.Send(this.Name);
+           
         }
 
         protected override void OnMouseDown(MouseEventArgs mevent)
         {
+            base.OnMouseDown(mevent);
             this.BackColor = Color.HotPink;
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
         {
+            base.OnMouseUp(mevent);
             this.BackColor = Color.DimGray;
-            //this.BackColor = SystemColors.ButtonFace;
-            //this.UseVisualStyleBackColor = True;
-            //ResetBackColor();
         }
+
+        //private void Switch_Click(object sender, System.EventArgs e)
+        //{
+        //    Form_1.Panel1.Visible = false;   
+        //}
 
 
 

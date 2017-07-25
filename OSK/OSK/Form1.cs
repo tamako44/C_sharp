@@ -16,8 +16,6 @@ namespace OSK
         {
             InitializeComponent();
             InitializeKeyboard();
-           // GenAphBtn();
-            //GenModifyBtn();
         }
 
 
