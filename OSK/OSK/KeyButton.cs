@@ -26,10 +26,6 @@ namespace OSK
             this.BackColor = Color.DimGray;
         }
 
-        //private void Switch_Click(object sender, System.EventArgs e)
-        //{
-        //    Form_1.Panel1.Visible = false;   
-        //}
 
 
 

@@ -9,8 +9,14 @@ using System.Windows.Forms;
 
 namespace OSK
 {
-    class ButtonLayout
+    interface IKeyGen
     {
+        KeyButton[] CreateLayout();
+    }
+    class ButtonLayout : IKeyGen
+    {
+        
+
         protected string[] TextArr;
         protected string[] NameArr;
         protected int[] LocaXArr;
@@ -18,9 +24,13 @@ namespace OSK
         protected int[] SizeXArr;
         protected int[] SizeYArr;
 
+        
+
         public KeyButton[] CreateLayout()
         {
             //string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeXArr, int[] SizeYArr
+
+
             int TotalBtn = TextArr.Length;
             KeyButton[] btn = new KeyButton[TotalBtn];
 
@@ -29,7 +39,7 @@ namespace OSK
                 switch (TextArr[a])
                 {
                     case "Switch":
-                        btn[a] = new SwitchButton();
+                        btn[a] = new SwitchButton(this.P1, this.P2);
                         break;
                     default:
                         btn[a] = new KeyButton();

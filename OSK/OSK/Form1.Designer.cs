@@ -10,6 +10,7 @@ namespace OSK
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         public Panel Panel1;
+        public Panel Panel2;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -56,21 +57,25 @@ namespace OSK
             this.TopMost = true;
 
             SetPanel1();
+            SetPanel2();
 
-            CreateLayoutKey CreateKey = new CreateLayoutKey();
-            ButtonLayout Layout = new Layout1();
+
+            //this.Panel2.Visible = false;
+            
+
+            //ButtonLayout Layout = new Layout1();
             //ButtonLayout Layout2 = new Layout2();
 
             //AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
             //AphKeyArr = CreateKey.CreateLayout(Layout2.L2TextArr, Layout2.L2NameArr, Layout2.L2LocaXArr, Layout2.L2LocaYArr, Layout2.L2SizeXArr, Layout2.L2SizeYArr);
 
-            AphKeyArr = Layout.CreateLayout();
+            //AphKeyArr = Layout.CreateLayout();
             //Layout.TextArr, Layout.NameArr, Layout.LocaXArr, Layout.LocaYArr, Layout.SizeXArr, Layout.SizeYArr
 
-            foreach (KeyButton key in AphKeyArr)
-            {
-                Panel1.Controls.Add(key);
-            }
+            //foreach (KeyButton key in AphKeyArr)
+            //{
+            //    Panel1.Controls.Add(key);
+            //}
         }
 
         private void SetPanel1()
@@ -80,7 +85,35 @@ namespace OSK
             this.Panel1.Name = "panel1";
             this.Panel1.Size = this.ClientSize;
             this.Panel1.TabIndex = 0;
+            this.Panel1.Visible = true;
             this.Controls.Add(Panel1);
+
+            ButtonLayout Layout = new Layout1();
+            AphKeyArr = Layout.CreateLayout(Panel1, Panel2);
+
+            foreach (KeyButton key in AphKeyArr)
+            {
+                Panel1.Controls.Add(key);
+            }
+        }
+
+        private void SetPanel2()
+        {
+            this.Panel2 = new System.Windows.Forms.Panel();
+            this.Panel2.Location = new System.Drawing.Point(0, 0);
+            this.Panel2.Name = "panel2";
+            this.Panel2.Size = this.ClientSize;
+            this.Panel2.TabIndex = 0;
+            this.Panel2.Visible = false;
+            this.Controls.Add(Panel2);
+
+            ButtonLayout Layout = new Layout2();
+            AphKeyArr = Layout.CreateLayout();
+
+            foreach (KeyButton key in AphKeyArr)
+            {
+                Panel2.Controls.Add(key);
+            }
         }
 
         private KeyButton[] GenAphBtn()

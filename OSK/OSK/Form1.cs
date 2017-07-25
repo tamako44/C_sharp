@@ -16,6 +16,7 @@ namespace OSK
         {
             InitializeComponent();
             InitializeKeyboard();
+            
         }
 
 
