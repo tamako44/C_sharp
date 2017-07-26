@@ -1,0 +1,9 @@
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\bin\Debug\OSK.exe.config
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\bin\Debug\OSK.exe
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\bin\Debug\OSK.pdb
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\obj\Debug\OSK.csprojResolveAssemblyReference.cache
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\obj\Debug\OSK.Form1.resources
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\obj\Debug\OSK.Properties.Resources.resources
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\obj\Debug\OSK.csproj.GenerateResource.Cache
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\obj\Debug\OSK.exe
+c:\users\ysc\onedrive\documents\visual studio 2015\Projects\OSK\OSK\obj\Debug\OSK.pdb

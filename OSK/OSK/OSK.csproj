@@ -57,6 +57,9 @@
     <Compile Include="LayoutStruct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShiftButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SwitchButton.cs">
       <SubType>Component</SubType>
     </Compile>

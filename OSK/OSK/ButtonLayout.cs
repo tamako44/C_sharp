@@ -11,7 +11,7 @@ namespace OSK
 {
     interface IKeyGen
     {
-        KeyButton[] CreateLayout(Panel Panel1, Panel Panel2);
+        KeyButton[] CreateLayout(Panel Panel1, Panel Panel2, Panel Panel3);
     }
 
 
@@ -26,9 +26,7 @@ namespace OSK
         protected int[] SizeXArr;
         protected int[] SizeYArr;
 
-        
-
-        public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2)
+        public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2, Panel Panel3)
         {
             //string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeXArr, int[] SizeYArr
 
@@ -41,10 +39,13 @@ namespace OSK
                 switch (TextArr[a])
                 {
                     case "Switch":
-                        btn[a] = new SwitchButton(Panel1 , Panel2);
+                        btn[a] = new SwitchButton(Panel1 , Panel2, Panel3);
+                        break;
+                    case "↑":
+                        btn[a] = new ShiftButton(Panel1, Panel2, Panel3);
                         break;
                     default:
-                        btn[a] = new KeyButton();
+                        btn[a] = new KeyButton(Panel1, Panel2, Panel3);
                         break;
                 }
                 
@@ -63,7 +64,7 @@ namespace OSK
         protected internal class Layout1 : ButtonLayout
         {
             protected string[] L1TextArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
-            protected string[] L1NameArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "{BS}", "{ENTER}", "+", "+", "^", " ", " ", " ", "<", ">", " " };
+            protected string[] L1NameArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "{BS}", "{ENTER}", "Shift", "Shift", "^", " ", " ", " ", "<", ">", " " };
             protected int[] L1LocaXArr = new int[] { 87, 153, 219, 285, 351, 417, 483, 549, 615, 681, 107, 173, 239, 305, 371, 437, 503, 569, 635, 701, 140, 206, 272, 338, 404, 470, 536, 602, 668, 734, 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
             protected int[] L1LocaYArr = new int[] { 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 141, 141, 141, 141, 141, 141, 141, 141, 141, 141, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, 85, 141, 197, 197, 253, 253, 253, 253, 253, 253, 253 };
             protected int[] L1SizeXArr = new int[] { 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 117, 97, 64, 64, 64, 64, 64, 394, 64, 64, 64 };
@@ -79,6 +80,7 @@ namespace OSK
                 SizeYArr = L1SizeYArr;
             }
         }
+
 
         protected internal class Layout2 : ButtonLayout
         {
@@ -104,13 +106,13 @@ namespace OSK
 
     }
 
-    class DrawLayout : IKeyGen
-    {
-        public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2)
-        {
-            return null;
-        }
-    }
+    //class DrawLayout : IKeyGen
+    //{
+    //    public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2)
+    //    {
+    //        return null;
+    //    }
+    //}
 
 
   //      public string[] L1AphArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?" };

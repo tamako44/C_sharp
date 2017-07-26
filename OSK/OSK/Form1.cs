@@ -19,8 +19,6 @@ namespace OSK
             
         }
 
-
-
         protected override CreateParams CreateParams
         {
             get

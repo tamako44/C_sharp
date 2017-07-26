@@ -13,10 +13,13 @@ namespace OSK
 
         private Panel P1;
         private Panel P2;
-        public SwitchButton(Panel Panel1, Panel Panel2)
+        private Panel P3;
+
+        public SwitchButton(Panel Panel1, Panel Panel2, Panel Panel3) : base(Panel1, Panel2, Panel3)
         {
             P1 = Panel1;
             P2 = Panel2;
+            P3 = Panel3;
         }
 
         protected override void OnClick(EventArgs e)
@@ -26,6 +29,12 @@ namespace OSK
             SendKeys.Send("aaa");
 
         }
+
+        protected override void OnDoubleClick(EventArgs e)
+        {
+            base.OnDoubleClick(e);
+        }
+
 
         void Switch()
         {
@@ -44,9 +53,8 @@ namespace OSK
             else
             {
                 Console.WriteLine(PanelStatus);
-                P1.Visible = true;
                 P2.Visible = false;
-
+                P1.Visible = true;
             }
 
 
