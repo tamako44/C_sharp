@@ -8,6 +8,19 @@ using System.Windows.Forms;
 
 namespace OSK
 {
+    public struct SFBtn
+    {
+        public bool SFStatus;
+
+        public SFBtn(bool shiftStatus)
+        {
+            SFStatus = shiftStatus;
+        }
+    }
+
+
+    public delegate bool IsShifeMode(SFBtn sfBtn);
+
     public class ShiftButton : KeyButton
     {
         private Panel P1;
@@ -22,13 +35,14 @@ namespace OSK
         }
 
         [Category("自訂屬性")]
-        private bool _ShiftMode = false;
-        public bool ShiftMode
+        private bool _ShiftStatus = false;
+        public bool ShiftStatus
         {
-            get;set;
-            //get { return _ShiftMode; }
-            //set { _ShiftMode = value; }
+            get { return _ShiftStatus; }
+            set { _ShiftStatus = value; }
         }
+
+        
 
         protected override void OnClick(EventArgs e)
         {
@@ -38,16 +52,30 @@ namespace OSK
 
         void OneClickLayoutSwitch()
         {
-            if (P1.Visible == true)
+            if ( this._ShiftStatus == false)
             {
-                P1.Visible = false;
-                P3.Visible = true;
+                this._ShiftStatus = true;
             }
             else
             {
-                P3.Visible = false;
-                P1.Visible = true;
+                this._ShiftStatus = true;
             }
+            
+            //if (P1.Visible == true)
+            //{
+            //    P1.Visible = false;
+            //    P3.Visible = true;
+            //}
+            //else
+            //{
+            //    P3.Visible = false;
+            //    P1.Visible = true;
+            //}
+        }
+
+        public void PassShiftStatus(IsShifeMode SFStatus)
+        {
+            SFStatus(this._ShiftStatus);
         }
     }
 }
