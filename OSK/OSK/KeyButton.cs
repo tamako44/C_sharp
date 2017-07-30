@@ -24,27 +24,27 @@ namespace OSK
             //SendKeys.Send(this.Name);
 
 
-            if (P3.Visible == true)
-            {
-                if (this.Name == "Shift")
-                { }
-                else
-                {
-                    SendKeys.Send(this.Name);
-                    P3.Visible = false;
-                    P1.Visible = true;
-                    //this.CausesValidation = false;
-                }       
-            }
-            else
-            {
-                if (this.Name == "Shift") { }
+            //if (P3.Visible == true)
+            //{
+            //    if (this.Name == "Shift")
+            //    { }
+            //    else
+            //    {
+            //        SendKeys.Send(this.Name);
+            //        P3.Visible = false;
+            //        P1.Visible = true;
+            //        //this.CausesValidation = false;
+            //    }       
+            //}
+            //else
+            //{
+            //    if (this.Name == "Shift") { }
 
-                else
-                {
-                    SendKeys.Send(this.Name);
-                }
-            }
+            //    else
+            //    {
+            //        SendKeys.Send(this.Name);
+            //    }
+            //}
 
             //string a = this.Text;
 

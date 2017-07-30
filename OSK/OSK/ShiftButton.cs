@@ -8,18 +8,7 @@ using System.Windows.Forms;
 
 namespace OSK
 {
-    public struct SFBtn
-    {
-        public bool SFStatus;
-
-        public SFBtn(bool shiftStatus)
-        {
-            SFStatus = shiftStatus;
-        }
-    }
-
-
-    public delegate bool IsShifeMode(SFBtn sfBtn);
+    public delegate void SFStatusChange(int status);
 
     public class ShiftButton : KeyButton
     {
@@ -35,47 +24,45 @@ namespace OSK
         }
 
         [Category("自訂屬性")]
-        private bool _ShiftStatus = false;
-        public bool ShiftStatus
+
+        // 0 = no shift, 1 = one click shift, 2 = double click shift; 
+        private int _ShiftStatus = 0;
+        public int ShiftStatus
         {
             get { return _ShiftStatus; }
-            set { _ShiftStatus = value; }
+            set
+            {
+                _ShiftStatus = value;
+                //if (StatusChange != null)
+                    StatusChange(_ShiftStatus);
+            }
         }
 
-        
+        public SFStatusChange StatusChange ;
+
 
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            OneClickLayoutSwitch();   
-        }
-
-        void OneClickLayoutSwitch()
-        {
-            if ( this._ShiftStatus == false)
+            if (this.ShiftStatus == 0)
             {
-                this._ShiftStatus = true;
+                this.ShiftStatus = 1;
             }
             else
             {
-                this._ShiftStatus = true;
+                this.ShiftStatus = 0;
             }
-            
-            //if (P1.Visible == true)
-            //{
-            //    P1.Visible = false;
-            //    P3.Visible = true;
-            //}
-            //else
-            //{
-            //    P3.Visible = false;
-            //    P1.Visible = true;
-            //}
         }
 
-        public void PassShiftStatus(IsShifeMode SFStatus)
+        protected override void OnDoubleClick(EventArgs e)
         {
-            SFStatus(this._ShiftStatus);
+            base.OnDoubleClick(e);
+            if (this.ShiftStatus == 0)
+            {
+                this.ShiftStatus = 2;
+            }
+
         }
+
     }
 }

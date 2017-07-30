@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using static OSK.ButtonLayout;
 
 namespace OSK
@@ -65,23 +66,6 @@ namespace OSK
             GenLayout2();
             GenLayout3();
 
-
-            //this.Panel2.Visible = false;
-
-
-            //ButtonLayout Layout = new Layout1();
-            //ButtonLayout Layout2 = new Layout2();
-
-            //AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
-            //AphKeyArr = CreateKey.CreateLayout(Layout2.L2TextArr, Layout2.L2NameArr, Layout2.L2LocaXArr, Layout2.L2LocaYArr, Layout2.L2SizeXArr, Layout2.L2SizeYArr);
-
-            //AphKeyArr = Layout.CreateLayout();
-            //Layout.TextArr, Layout.NameArr, Layout.LocaXArr, Layout.LocaYArr, Layout.SizeXArr, Layout.SizeYArr
-
-            //foreach (KeyButton key in AphKeyArr)
-            //{
-            //    Panel1.Controls.Add(key);
-            //}
         }
 
         private void SetPanel1()
@@ -125,6 +109,31 @@ namespace OSK
             foreach (KeyButton key in KeyArr)
             {
                 Panel1.Controls.Add(key);
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton) key;
+                    button.StatusChange = new SFStatusChange(
+                        status =>
+                        {
+                            Console.WriteLine("delegate");
+                            switch (status)
+                            {
+                                case (0):
+                                    this.Panel3.Visible = false;
+                                    this.Panel3.Visible = true;
+                                    break;
+                                case (1):
+                                    this.Panel1.Visible = false;
+                                    this.Panel3.Visible = true;
+                                    break;
+                                case (2):
+                                    this.Panel1.Visible = false;
+                                    this.Panel3.Visible = true;
+                                    break;
+                            }
+
+                        });
+                }
             }
         }
 
@@ -152,6 +161,31 @@ namespace OSK
             foreach (KeyButton key in KeyArr)
             {
                 Panel3.Controls.Add(key);
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton)key;
+                    button.StatusChange = new SFStatusChange(
+                        status =>
+                        {
+                            Console.WriteLine("delegate");
+                            switch (status)
+                            {
+                                case (0):
+                                    this.Panel3.Visible = false;
+                                    this.Panel1.Visible = true;
+                                    break;
+                                case (1):
+                                    this.Panel1.Visible = false;
+                                    this.Panel3.Visible = true;
+                                    break;
+                                case (2):
+                                    this.Panel1.Visible = false;
+                                    this.Panel3.Visible = true;
+                                    break;
+                            }
+
+                        });
+                }
             }
         }
 
