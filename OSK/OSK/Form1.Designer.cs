@@ -120,14 +120,15 @@ namespace OSK
                             {
                                 case (0):
                                     this.Panel3.Visible = false;
-                                    this.Panel3.Visible = true;
+                                    //this.Panel1.Visible = true;
+                                   
                                     break;
                                 case (1):
-                                    this.Panel1.Visible = false;
+                                    //this.Panel1.Visible = false;
                                     this.Panel3.Visible = true;
                                     break;
                                 case (2):
-                                    this.Panel1.Visible = false;
+                                   // this.Panel1.Visible = false;
                                     this.Panel3.Visible = true;
                                     break;
                             }
@@ -150,14 +151,14 @@ namespace OSK
 
         private void GenLayout3()
         {
-            ButtonLayout Layout = new Layout1();
+            ButtonLayout Layout = new Layout3();
             KeyArr = Layout.CreateLayout(Panel1, Panel2, Panel3);
             
-            for (int i = 0; i <= 26; i++)
-            {
-                KeyArr[i].Text = KeyArr[i].Text.ToUpper();
-                KeyArr[i].Name = KeyArr[i].Name.ToUpper();
-            }
+            //for (int i = 0; i <= 26; i++)
+            //{
+            //    KeyArr[i].Text = KeyArr[i].Text.ToUpper();
+            //    KeyArr[i].Name = KeyArr[i].Name.ToUpper();
+            //}
             foreach (KeyButton key in KeyArr)
             {
                 Panel3.Controls.Add(key);
@@ -172,14 +173,14 @@ namespace OSK
                             {
                                 case (0):
                                     this.Panel3.Visible = false;
-                                    this.Panel1.Visible = true;
+                                    //this.Panel1.Visible = true;
                                     break;
                                 case (1):
-                                    this.Panel1.Visible = false;
+                                    //this.Panel1.Visible = false;
                                     this.Panel3.Visible = true;
                                     break;
                                 case (2):
-                                    this.Panel1.Visible = false;
+                                    //this.Panel1.Visible = false;
                                     this.Panel3.Visible = true;
                                     break;
                             }

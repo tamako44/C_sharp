@@ -44,23 +44,23 @@ namespace OSK
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            if (this.ShiftStatus == 0)
-            {
-                this.ShiftStatus = 1;
-            }
-            else
-            {
-                this.ShiftStatus = 0;
-            }
+            //if (this.ShiftStatus == 0)
+            //{
+            //    this.ShiftStatus = 1;
+            //}
+            //else
+            //{
+            //    this.ShiftStatus = 0;
+            //}
         }
 
         protected override void OnDoubleClick(EventArgs e)
         {
             base.OnDoubleClick(e);
-            if (this.ShiftStatus == 0)
-            {
-                this.ShiftStatus = 2;
-            }
+            //if (this.ShiftStatus == 0)
+            //{
+            //    this.ShiftStatus = 2;
+            //}
 
         }
 

@@ -103,6 +103,26 @@ namespace OSK
             }
         }
 
+        protected internal class Layout3 : ButtonLayout
+        {
+            protected string[] L3TextArr = new string[] { "Q", "W", "W", "R", "T", "Y", "U", "I", "O", "P", "A", "D", "d", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M" };
+            protected string[] L3NameArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m" };
+            protected int[] L3LocaXArr = new int[] { 87, 153, 219, 285, 351, 417, 483, 549, 615, 681, 107, 173, 239, 305, 371, 437, 503, 569, 635, 140, 206, 272, 338, 404, 470, 536 };
+            protected int[] L3LocaYArr = new int[] { 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 141, 141, 141, 141, 141, 141, 141, 141, 141, 197, 197, 197, 197, 197, 197, 197 };
+            protected int[] L3SizeXArr = new int[] { 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64 };
+            protected int[] L3SizeYArr = new int[] { 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54 };
+
+            public Layout3()
+            {
+                TextArr = L3TextArr;
+                NameArr = L3NameArr;
+                LocaXArr = L3LocaXArr;
+                LocaYArr = L3LocaYArr;
+                SizeXArr = L3SizeXArr;
+                SizeYArr = L3SizeYArr;
+            }
+        }
+
 
     }
 
