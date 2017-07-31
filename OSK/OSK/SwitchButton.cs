@@ -26,7 +26,6 @@ namespace OSK
         {
 
             Switch();
-            SendKeys.Send("aaa");
 
         }
 
@@ -38,21 +37,13 @@ namespace OSK
 
         void Switch()
         {
-            SendKeys.Send("ck");
-
-            //Form1 Form1 = new Form1();
-
-            bool PanelStatus = P1.Visible;
-
-            if (PanelStatus == true)
+            if (P1.Visible)
             {
-                Console.WriteLine(PanelStatus);
                 P1.Visible = false;
                 P2.Visible = true;
             }
             else
             {
-                Console.WriteLine(PanelStatus);
                 P2.Visible = false;
                 P1.Visible = true;
             }

@@ -21,26 +21,19 @@ namespace OSK
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            //SendKeys.Send(this.Name);
-
 
             if (P3.Visible == true)
             {
-                if (this.Name == "Shift")
-                { }
-                else
+                if (this.Name != "Shift")
                 {
                     SendKeys.Send(this.Name);
                     P3.Visible = false;
                     P1.Visible = true;
-                    //this.CausesValidation = false;
                 }       
             }
             else
             {
-                if (this.Name == "Shift") { }
-
-                else
+                if (this.Name != "Shift")
                 {
                     SendKeys.Send(this.Name);
                 }

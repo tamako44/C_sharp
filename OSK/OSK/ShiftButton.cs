@@ -25,9 +25,8 @@ namespace OSK
         private bool _ShiftMode = false;
         public bool ShiftMode
         {
-            get;set;
-            //get { return _ShiftMode; }
-            //set { _ShiftMode = value; }
+            get { return _ShiftMode; }
+            set { _ShiftMode = value; }
         }
 
         protected override void OnClick(EventArgs e)
@@ -38,7 +37,7 @@ namespace OSK
 
         void OneClickLayoutSwitch()
         {
-            if (P1.Visible == true)
+            if (P1.Visible)
             {
                 P1.Visible = false;
                 P3.Visible = true;
