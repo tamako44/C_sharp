@@ -64,8 +64,7 @@ namespace OSK
         {
             base.OnMouseDown(mevent);
             this.BackColor = Color.HotPink;
-            this.ForeColor = Color.DimGray;
-            
+            this.ForeColor = Color.DimGray;          
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
@@ -77,16 +76,13 @@ namespace OSK
 
         protected override void OnMouseHover(EventArgs e)
         {
-
             this.BackColor = Color.White;
             this.ForeColor = Color.DimGray;
             base.OnMouseHover(e);
-
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
-
             this.BackColor = Color.DimGray;
             this.ForeColor = Color.White;
             base.OnMouseHover(e);

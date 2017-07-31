@@ -34,33 +34,36 @@ namespace OSK
             {
                 _ShiftStatus = value;
                 //if (StatusChange != null)
-                    StatusChange(_ShiftStatus);
+                //    StatusChange(_ShiftStatus);
             }
         }
 
         public SFStatusChange StatusChange ;
 
-
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            //if (this.ShiftStatus == 0)
-            //{
-            //    this.ShiftStatus = 1;
-            //}
-            //else
-            //{
-            //    this.ShiftStatus = 0;
-            //}
+            if (this.ShiftStatus == 0)
+            {
+                if (StatusChange != null)
+                    StatusChange(1);
+            }
+            else
+            {
+                if (StatusChange != null)
+                    StatusChange(0);
+            }           
         }
 
         protected override void OnDoubleClick(EventArgs e)
         {
             base.OnDoubleClick(e);
-            //if (this.ShiftStatus == 0)
-            //{
-            //    this.ShiftStatus = 2;
-            //}
+            if (this.ShiftStatus == 0)
+            {
+                if (StatusChange != null)
+                    StatusChange(2);
+            }
+            
 
         }
 

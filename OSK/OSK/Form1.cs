@@ -12,9 +12,6 @@ namespace OSK
 {
     public partial class Form1 : Form
     {
-
-        //GetShiftStatus SFMode = new GetShiftStatus();
-
         public Form1()
         {
             InitializeComponent();
