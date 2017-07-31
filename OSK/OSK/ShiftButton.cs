@@ -12,34 +12,35 @@ namespace OSK
 
     public class ShiftButton : KeyButton
     {
-        private Panel P1;
-        private Panel P2;
-        private Panel P3;
+        //private Panel P1;
+        //private Panel P2;
+        //private Panel P3;
 
-        public ShiftButton(Panel Panel1, Panel Panel2, Panel Panel3) : base(Panel1, Panel2, Panel3)
+        public ShiftButton() //: base(Panel1, Panel2, Panel3)
         {
-            P1 = Panel1;
-            P2 = Panel2;
-            P3 = Panel3;
+            //P1 = Panel1;
+            //P2 = Panel2;
+            //P3 = Panel3;
+            SetStyle(ControlStyles.StandardClick | ControlStyles.StandardDoubleClick, true);
+            this.UpdateStyles();
         }
 
-        [Category("自訂屬性")]
-
+        //[Category("自訂屬性")]
         // 0 = no shift, 1 = one click shift, 2 = double click shift; 
-        private int _ShiftStatus = 0;
-        public int ShiftStatus
-        {
-            get { return _ShiftStatus; }
-            set
-            {
-                _ShiftStatus = value;
-                //if (StatusChange != null)
-                //    StatusChange(_ShiftStatus);
-            }
-        }
+        //private int _ShiftStatus = 0;
+        //public int ShiftStatus
+        //{
+        //    get { return _ShiftStatus; }
+        //    set
+        //    {
+        //        _ShiftStatus = value;
+        //        //if (StatusChange != null)
+        //        //    StatusChange(_ShiftStatus);
+        //    }
+        //}
 
-        public SFStatusChange StatusChange ;
-
+        //public SFStatusChange StatusChange ;
+        
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
@@ -57,12 +58,14 @@ namespace OSK
 
         protected override void OnDoubleClick(EventArgs e)
         {
-            base.OnDoubleClick(e);
-            if (this.ShiftStatus == 0)
-            {
-                if (StatusChange != null)
-                    StatusChange(2);
-            }
+           base.OnDoubleClick(e);
+            
+            Console.WriteLine("Double");
+            //if (this.ShiftStatus == 0)
+            //{
+            //    if (StatusChange != null)
+            //        StatusChange(2);
+            //}
             
 
         }

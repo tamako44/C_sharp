@@ -28,9 +28,6 @@ namespace OSK
 
         public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2, Panel Panel3)
         {
-            //string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeXArr, int[] SizeYArr
-
-
             int TotalBtn = TextArr.Length;
             KeyButton[] btn = new KeyButton[TotalBtn];
 
@@ -42,10 +39,10 @@ namespace OSK
                         btn[a] = new SwitchButton(Panel1 , Panel2, Panel3);
                         break;
                     case "↑":
-                        btn[a] = new ShiftButton(Panel1, Panel2, Panel3);
+                        btn[a] = new ShiftButton();
                         break;
                     default:
-                        btn[a] = new KeyButton(Panel1, Panel2, Panel3);
+                        btn[a] = new KeyButton();
                         break;
                 }
                 

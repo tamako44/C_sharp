@@ -9,13 +9,12 @@ namespace OSK
 {
     class SwitchButton : KeyButton
     {
-        
 
         private Panel P1;
         private Panel P2;
         private Panel P3;
 
-        public SwitchButton(Panel Panel1, Panel Panel2, Panel Panel3) : base(Panel1, Panel2, Panel3)
+        public SwitchButton(Panel Panel1, Panel Panel2, Panel Panel3) //: base(Panel1, Panel2, Panel3)
         {
             P1 = Panel1;
             P2 = Panel2;
@@ -24,40 +23,31 @@ namespace OSK
 
         protected override void OnClick(EventArgs e)
         {
-
             Switch();
-            SendKeys.Send("aaa");
-
+            Console.WriteLine("OnClick");
         }
 
         protected override void OnDoubleClick(EventArgs e)
         {
             base.OnDoubleClick(e);
+            this.SetStyle(ControlStyles.StandardClick, true);
+            this.SetStyle(ControlStyles.StandardDoubleClick, true);
+            Console.WriteLine("Double");
         }
 
 
         void Switch()
         {
-            SendKeys.Send("ck");
-
-            //Form1 Form1 = new Form1();
-
-            bool PanelStatus = P1.Visible;
-
-            if (PanelStatus == true)
+            if (P1.Visible)
             {
-                Console.WriteLine(PanelStatus);
                 P1.Visible = false;
                 P2.Visible = true;
             }
             else
             {
-                Console.WriteLine(PanelStatus);
                 P2.Visible = false;
                 P1.Visible = true;
             }
-
-
         }
     }
 }

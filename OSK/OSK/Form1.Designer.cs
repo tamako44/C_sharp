@@ -13,7 +13,7 @@ namespace OSK
         public Panel Panel1;
         public Panel Panel2;
         public Panel Panel3;
-        private KeyButton[] KeyArr;
+        //private KeyButton[] KeyArr;
         public KeyButton[] KeyLayout1;
         public KeyButton[] KeyLayout2;
         public KeyButton[] KeyLayout3;
@@ -111,7 +111,11 @@ namespace OSK
                 if (key.GetType() == typeof(ShiftButton))
                 {
                     ShiftButton button = (ShiftButton) key;
-                    button.StatusChange += SFSwitch;
+                    button.StatusChange += SFStatus;
+                }
+                else
+                {
+                    key.StatusChange += KeyStatus;
                 }
             }
         }
@@ -137,21 +141,23 @@ namespace OSK
                 KeyLayout3[i].Text = KeyLayout3[i].Text.ToUpper();
                 KeyLayout3[i].Name = KeyLayout3[i].Name.ToUpper();
             }
-            //foreach (KeyButton key in KeyLayout3)
-            //{
-            //    Panel3.Controls.Add(key);
-            //    if (key.GetType() == typeof(ShiftButton))
-            //    {1
-            //        ShiftButton button = (ShiftButton)key;
-            //        button.StatusChange += SFSwitch;
-            //    }
-            //}
+            foreach (KeyButton key in KeyLayout3)
+            {
+                Panel3.Controls.Add(key);
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton)key;
+                    button.StatusChange += SFStatus;
+                }
+                else
+                {
+                    key.StatusChange += KeyStatus;
+                }
+            }
         }
 
-        private void SFSwitch(int status)
+        private void SFStatus(int status)
         {
-            //Console.WriteLine("delegate");
-
             foreach (KeyButton key in KeyLayout1)
             {
                 if (key.GetType() == typeof(ShiftButton))
@@ -159,7 +165,8 @@ namespace OSK
                     ShiftButton button = (ShiftButton)key;
                     button.ShiftStatus = status;
                 }
-
+                else
+                    key.ShiftStatus = status;
             }
             foreach (KeyButton key in KeyLayout2)
             {
@@ -168,7 +175,6 @@ namespace OSK
                     ShiftButton button = (ShiftButton)key;
                     button.ShiftStatus = status;
                 }
-
             }
             foreach (KeyButton key in KeyLayout3)
             {
@@ -177,7 +183,8 @@ namespace OSK
                     ShiftButton button = (ShiftButton)key;
                     button.ShiftStatus = status;
                 }
-
+                else
+                    key.ShiftStatus = status;
             }
 
             switch (status)
@@ -194,6 +201,25 @@ namespace OSK
                     this.Panel1.Visible = false;
                     this.Panel3.Visible = true;
                     break;
+            }
+        }
+
+        private void KeyStatus(int status)
+        {
+            switch (status)
+            {
+                case (0):
+                    this.Panel3.Visible = false;
+                    this.Panel1.Visible = true;
+                    break;
+                //case (1):
+                //    this.Panel3.Visible = false;
+                //    this.Panel1.Visible = true;
+                //    break;
+                //case (2):
+                //    this.Panel1.Visible = false;
+                //    this.Panel3.Visible = true;
+                //    break;
             }
         }
     }
