@@ -28,9 +28,6 @@ namespace OSK
 
         public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2, Panel Panel3)
         {
-            //string[] TextArr, string[] NameArr, int[] LocaXArr, int[] LocaYArr, int[] SizeXArr, int[] SizeYArr
-
-
             int TotalBtn = TextArr.Length;
             KeyButton[] btn = new KeyButton[TotalBtn];
 
@@ -42,10 +39,10 @@ namespace OSK
                         btn[a] = new SwitchButton(Panel1 , Panel2, Panel3);
                         break;
                     case "↑":
-                        btn[a] = new ShiftButton(Panel1, Panel2, Panel3);
+                        btn[a] = new ShiftButton();
                         break;
                     default:
-                        btn[a] = new KeyButton(Panel1, Panel2, Panel3);
+                        btn[a] = new KeyButton();
                         break;
                 }
                 
@@ -103,78 +100,27 @@ namespace OSK
             }
         }
 
+        protected internal class Layout3 : ButtonLayout
+        {
+            protected string[] L3TextArr = new string[] { "Q", "W", "W", "R", "T", "Y", "U", "I", "O", "P", "A", "D", "d", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M" };
+            protected string[] L3NameArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m" };
+            protected int[] L3LocaXArr = new int[] { 87, 153, 219, 285, 351, 417, 483, 549, 615, 681, 107, 173, 239, 305, 371, 437, 503, 569, 635, 140, 206, 272, 338, 404, 470, 536 };
+            protected int[] L3LocaYArr = new int[] { 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 141, 141, 141, 141, 141, 141, 141, 141, 141, 197, 197, 197, 197, 197, 197, 197 };
+            protected int[] L3SizeXArr = new int[] { 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64 };
+            protected int[] L3SizeYArr = new int[] { 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54 };
+
+            public Layout3()
+            {
+                TextArr = L3TextArr;
+                NameArr = L3NameArr;
+                LocaXArr = L3LocaXArr;
+                LocaYArr = L3LocaYArr;
+                SizeXArr = L3SizeXArr;
+                SizeYArr = L3SizeYArr;
+            }
+        }
+
 
     }
-
-    //class DrawLayout : IKeyGen
-    //{
-    //    public KeyButton[] CreateLayout(Panel Panel1, Panel Panel2)
-    //    {
-    //        return null;
-    //    }
-    //}
-
-
-  //      public string[] L1AphArr = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?" };
-  //      public int[] L1AphLocaXArr = new int[] { 87, 153, 219, 285, 351, 417, 483, 549, 615, 681, 107, 173, 239, 305, 371, 437, 503, 569, 635, 701, 140, 206, 272, 338, 404, 470, 536, 602, 668, 734 };
-  //      public int[] L1AphLocaYArr = new int[] { 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 141, 141, 141, 141, 141, 141, 141, 141, 141, 141, 197, 197, 197, 197, 197, 197, 197, 197, 197, 197, };
-
-		//public string[] L1ModiNameArr = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
-  //      string[] L1ModiTextArr = new string[] { "{BS}", "{ENTER}", "+", "+", "^", " ", " ", "<", ">", " " };
-  //      public int[] Location_X = new int[] { 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
-		//public int[] Location_Y = new int[] { 85, 141, 197, 197, 253, 253, 253, 253, 253, 253, 253 };
-  //      public int[] L1SizeY = new int[] { 117, 97, 64, 64, 64, 64, 64, 396, 64, 64, 64 };
-
-
-
-
-        //private void Layout_1_Loca()
-        //{
-        //    int w = 66;
-        //    int oh_1 = 87;
-        //    int oh_2 = 107;
-        //    int oh_3 = 140;
-        //    int btnCount = 0;
-
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        for (int j = 0; j < 10; j++)
-        //        {
-        //            //btn[i] = new Button();
-        //            //btn[i].Name = AphArray[btnCount];
-        //            //btn[i].Text = btn[i].Name;
-        //            //btn[i].Size = new System.Drawing.Size(64, 54);
-
-        //            switch (i)
-        //            {
-        //                case 0:
-        //                    //btn[i].Location = new System.Drawing.Point(oh_1, 85);
-        //                    Layout_1_LocaX_Arr[btnCount] = oh_1;
-        //                    Layout_1_LocaY_Arr[btnCount] = 85;
-        //                    oh_1 += w;
-        //                    break;
-        //                case 1:
-        //                    //btn[i].Location = new System.Drawing.Point(oh_2, 141);
-        //                    Layout_1_LocaX_Arr[btnCount] = oh_2;
-        //                    Layout_1_LocaY_Arr[btnCount] = 141;
-        //                    oh_2 += w;
-        //                    break;
-        //                default:
-        //                    //btn[i].Location = new System.Drawing.Point(oh_3, 197);
-        //                    Layout_1_LocaX_Arr[btnCount] = oh_3;
-        //                    Layout_1_LocaY_Arr[btnCount] = 197;
-        //                    oh_3 += w;
-        //                    break;
-        //            }
-
-        //            btnCount++;
-
-
-        //        }
-        //    }
-        //}
-
-
-
-    
+   
 }

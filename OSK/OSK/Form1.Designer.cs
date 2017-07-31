@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using static OSK.ButtonLayout;
 
 namespace OSK
@@ -12,7 +13,10 @@ namespace OSK
         public Panel Panel1;
         public Panel Panel2;
         public Panel Panel3;
-        private KeyButton[] KeyArr;
+        //private KeyButton[] KeyArr;
+        public KeyButton[] KeyLayout1;
+        public KeyButton[] KeyLayout2;
+        public KeyButton[] KeyLayout3;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -51,9 +55,6 @@ namespace OSK
 
         #endregion
 
-        
-       // private KeyButton[] ModiKeyArr;
-
         private void InitializeKeyboard()
         {
             this.TopMost = true;
@@ -64,24 +65,6 @@ namespace OSK
             GenLayout1();
             GenLayout2();
             GenLayout3();
-
-
-            //this.Panel2.Visible = false;
-
-
-            //ButtonLayout Layout = new Layout1();
-            //ButtonLayout Layout2 = new Layout2();
-
-            //AphKeyArr = CreateKey.CreateLayout(Layout1.L1TextArr, Layout1.L1NameArr, Layout1.L1LocaXArr, Layout1.L1LocaYArr, Layout1.L1SizeXArr, Layout1.L1SizeYArr);
-            //AphKeyArr = CreateKey.CreateLayout(Layout2.L2TextArr, Layout2.L2NameArr, Layout2.L2LocaXArr, Layout2.L2LocaYArr, Layout2.L2SizeXArr, Layout2.L2SizeYArr);
-
-            //AphKeyArr = Layout.CreateLayout();
-            //Layout.TextArr, Layout.NameArr, Layout.LocaXArr, Layout.LocaYArr, Layout.SizeXArr, Layout.SizeYArr
-
-            //foreach (KeyButton key in AphKeyArr)
-            //{
-            //    Panel1.Controls.Add(key);
-            //}
         }
 
         private void SetPanel1()
@@ -120,20 +103,29 @@ namespace OSK
         private void GenLayout1()
         {
             ButtonLayout Layout = new Layout1();
-            KeyArr = Layout.CreateLayout(Panel1, Panel2, Panel3);
+            KeyLayout1 = Layout.CreateLayout(Panel1, Panel2, Panel3);
 
-            foreach (KeyButton key in KeyArr)
+            foreach (KeyButton key in KeyLayout1)
             {
                 Panel1.Controls.Add(key);
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton) key;
+                    button.StatusChange += SFStatus;
+                }
+                else
+                {
+                    key.StatusChange += KeyStatus;
+                }
             }
         }
 
         private void GenLayout2()
         {
             ButtonLayout Layout = new Layout2();
-            KeyArr = Layout.CreateLayout(Panel1, Panel2, Panel3);
+            KeyLayout2 = Layout.CreateLayout(Panel1, Panel2, Panel3);
 
-            foreach (KeyButton key in KeyArr)
+            foreach (KeyButton key in KeyLayout2)
             {
                 Panel2.Controls.Add(key);
             }
@@ -142,97 +134,94 @@ namespace OSK
         private void GenLayout3()
         {
             ButtonLayout Layout = new Layout1();
-            KeyArr = Layout.CreateLayout(Panel1, Panel2, Panel3);
-            
+            KeyLayout3 = Layout.CreateLayout(Panel1, Panel2, Panel3);
+
             for (int i = 0; i <= 26; i++)
             {
-                KeyArr[i].Text = KeyArr[i].Text.ToUpper();
-                KeyArr[i].Name = KeyArr[i].Name.ToUpper();
+                KeyLayout3[i].Text = KeyLayout3[i].Text.ToUpper();
+                KeyLayout3[i].Name = KeyLayout3[i].Name.ToUpper();
             }
-            foreach (KeyButton key in KeyArr)
+            foreach (KeyButton key in KeyLayout3)
             {
                 Panel3.Controls.Add(key);
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton)key;
+                    button.StatusChange += SFStatus;
+                }
+                else
+                {
+                    key.StatusChange += KeyStatus;
+                }
             }
         }
 
+        private void SFStatus(int status)
+        {
+            foreach (KeyButton key in KeyLayout1)
+            {
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton)key;
+                    button.ShiftStatus = status;
+                }
+                else
+                    key.ShiftStatus = status;
+            }
+            foreach (KeyButton key in KeyLayout2)
+            {
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton)key;
+                    button.ShiftStatus = status;
+                }
+            }
+            foreach (KeyButton key in KeyLayout3)
+            {
+                if (key.GetType() == typeof(ShiftButton))
+                {
+                    ShiftButton button = (ShiftButton)key;
+                    button.ShiftStatus = status;
+                }
+                else
+                    key.ShiftStatus = status;
+            }
 
+            switch (status)
+            {
+                case (0):
+                    this.Panel3.Visible = false;
+                    this.Panel1.Visible = true;                   
+                    break;
+                case (1):
+                    this.Panel1.Visible = false;
+                    this.Panel3.Visible = true;
+                    break;
+                case (2):
+                    this.Panel1.Visible = false;
+                    this.Panel3.Visible = true;
+                    break;
+            }
+        }
 
-
-
-
-
-
-
-        //private KeyButton[] GenAphBtn()
-        //{
-        //    KeyButton[] btn = new KeyButton[30];
-        //    int w = 66;
-        //    int oh_1 = 87;
-        //    int oh_2 = 107;
-        //    int oh_3 = 140;
-        //    int btnCount = 0;
-
-        //    string[] AphArray = new string[] { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?" };
-
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        for (int j = 0; j < 10; j++)
-        //        {
-        //            btn[btnCount] = new KeyButton();
-        //            btn[btnCount].Name = AphArray[btnCount]; 
-        //            btn[btnCount].Text = btn[btnCount].Name;
-        //            btn[btnCount].Size = new System.Drawing.Size(64, 54);
-
-        //            switch (i)
-        //            {
-        //                case 0:
-        //                    btn[btnCount].Location = new System.Drawing.Point(oh_1, 85);
-        //                    oh_1 += w;
-        //                    break;
-        //                case 1:
-        //                    btn[btnCount].Location = new System.Drawing.Point(oh_2, 141);
-        //                    oh_2 += w;
-        //                    break;
-        //                default:
-        //                    btn[btnCount].Location = new System.Drawing.Point(oh_3, 197);
-        //                    oh_3 += w;
-        //                    break;
-        //            }
-
-        //            this.Controls.Add(btn[btnCount]);
-        //            btnCount++;
-        //        }
-        //    }
-        //    return btn;
-        //}
-
-        //public KeyButton[] GenModifyBtn()
-        //{
-        //    KeyButton[] btn = new KeyButton[11];
-        //    //int btnCount = 0;
-
-        //    string[] ModiNameArr = new string[] { "Backspace", "Enter", "↑", "↑", "Ctrl", "&123", "☺", "Space", "<", ">", "Switch" };
-        //    string[] ModiTextArr = new string[] { "{BS}", "{ENTER}", "+", "+", "^", " ", " ", " ", "<", ">", " " };
-        //    int[] Location_X = new int[] { 747, 767, 74, 800, 74, 140, 206, 272, 668, 734, 800, 866 };
-        //    int[] Location_Y = new int[] { 85, 141, 197, 197, 253, 253, 253, 253, 253, 253, 253 };
-        //    int[] Size_Y = new int[] { 117, 97, 64, 64, 64, 64, 64, 396, 64, 64, 64};
-
-        //    for (int a = 0; a < 11 ; a ++)
-        //    {
-        //        btn[a] = new KeyButton();
-        //        btn[a].Name = ModiTextArr[a]; //"btn_" + j + "-" + i;
-        //        btn[a].Text = ModiNameArr[a];
-        //        btn[a].Size = new System.Drawing.Size(Size_Y[a], 54);
-        //        btn[a].Location = new System.Drawing.Point(Location_X[a], Location_Y[a]);
-
-        //        //this.Controls.Add(btn[a]);
-
-        //    }
-
-        //    return btn;
-
-        //}
-
+        private void KeyStatus(int status)
+        {
+            switch (status)
+            {
+                case (0):
+                    this.Panel3.Visible = false;
+                    this.Panel1.Visible = true;
+                    break;
+                //case (1):
+                //    this.Panel3.Visible = false;
+                //    this.Panel1.Visible = true;
+                //    break;
+                //case (2):
+                //    this.Panel1.Visible = false;
+                //    this.Panel3.Visible = true;
+                //    break;
+            }
+        }
     }
 
 }
