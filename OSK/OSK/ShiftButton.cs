@@ -25,15 +25,6 @@ namespace OSK
             this.UpdateStyles();
         }
 
-<<<<<<< HEAD
-        [Category("自訂屬性")]
-        private bool _ShiftMode = false;
-        public bool ShiftMode
-        {
-            get { return _ShiftMode; }
-            set { _ShiftMode = value; }
-        }
-=======
         //[Category("自訂屬性")]
         // 0 = no shift, 1 = one click shift, 2 = double click shift; 
         //private int _ShiftStatus = 0;
@@ -47,23 +38,13 @@ namespace OSK
         //        //    StatusChange(_ShiftStatus);
         //    }
         //}
->>>>>>> shiftButton
 
         //public SFStatusChange StatusChange ;
         
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-<<<<<<< HEAD
-            OneClickLayoutSwitch();   
-        }
-
-        void OneClickLayoutSwitch()
-        {
-            if (P1.Visible)
-=======
             if (this.ShiftStatus == 0)
->>>>>>> shiftButton
             {
                 if (StatusChange != null)
                     StatusChange(1);
