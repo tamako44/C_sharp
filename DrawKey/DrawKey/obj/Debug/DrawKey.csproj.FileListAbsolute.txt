@@ -1,0 +1,9 @@
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\bin\Debug\DrawKey.exe.config
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\bin\Debug\DrawKey.exe
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\bin\Debug\DrawKey.pdb
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\obj\Debug\DrawKey.csprojResolveAssemblyReference.cache
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\obj\Debug\DrawKey.Form1.resources
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\obj\Debug\DrawKey.Properties.Resources.resources
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\obj\Debug\DrawKey.csproj.GenerateResource.Cache
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\obj\Debug\DrawKey.exe
+c:\users\ysc\documents\visual studio 2017\Projects\DrawKey\DrawKey\obj\Debug\DrawKey.pdb
