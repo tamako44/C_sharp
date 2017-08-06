@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Caculator
+namespace Calculator
 {
     partial class Form1
     {
