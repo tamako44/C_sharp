@@ -9,5 +9,11 @@ namespace Calculator
 {
     class BaseButton : Button
     {
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            //Form1 form = new Form1();
+            //form.calculateInput(this.Text);
+        }
     }
 }

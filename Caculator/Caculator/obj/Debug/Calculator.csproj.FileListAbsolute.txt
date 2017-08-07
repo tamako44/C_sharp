@@ -1,0 +1,9 @@
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\bin\Debug\Caculator.exe.config
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\bin\Debug\Caculator.exe
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\bin\Debug\Caculator.pdb
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\obj\Debug\Calculator.Form1.resources
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\obj\Debug\Caculator.Properties.Resources.resources
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\obj\Debug\Caculator.exe
+C:\Users\ysc\OneDrive\Documents\Visual Studio 2015\Projects\Caculator\Caculator\obj\Debug\Caculator.pdb
