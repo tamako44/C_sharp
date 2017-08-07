@@ -14,7 +14,7 @@ namespace Calculator
 
     public partial class Form1 : Form
     {
-        enum Status { init = 0, num1 = 1, operatorSign = 2, num2 = 3, result = 4 };
+        enum Status { init, num1, operatorSign, num2, result };
         Status inputStatus = Status.init;
         //int inputStatus = (int)Status.init;
 
@@ -24,9 +24,11 @@ namespace Calculator
         string num1String = "0";
         string num2String = "0";
         string operatorSign;
+        string operatorSignTmp;
         int num1;
         int num2;
         int result;
+        int resultTmp;
 
         public Form1()
         {
@@ -74,18 +76,30 @@ namespace Calculator
                         switch (operatorSign)
                         {
                             case "+":
-                                result = num1 + num2;
+                                resultTmp = result;
+                                resultTmp = num1 + num2;
+                                result += resultTmp;
+                                //addFunction();
+                                break;
+                            case "-":
+                                //resultTmp = result;
+                                //resultTmp = num1 - num2;
+                                //result -= resultTmp;
+                                //subtractFunction();
                                 break;
                             case "=":
-                                result = num1 + num2;
-                                inputStatus = Status.result;
+                                resultTmp = result;
+                                resultTmp = num1 + num2;
+                                result += resultTmp;
+                                DisplayLabel.Text = num1.ToString();
+                                num1String = "0";
+                                num2String = "0";
+                                inputStatus = Status.num1;
                                 break;
                             default:
 
                                 break;
-                        }
-
-                        DisplayLabel.Text = result.ToString();
+                        }                
                     }
                     break;
             }          
@@ -145,16 +159,15 @@ namespace Calculator
                         operatorSign = buttonString;
                     }
                     break;
+                case Status.result:
+
+                    break;
             }
             num1 = Int32.Parse(num1String);
             num2 = Int32.Parse(num2String);
         }
 
-
-
-
-
-
+       
 
         public void checkNumber(string buttonString)
         {
