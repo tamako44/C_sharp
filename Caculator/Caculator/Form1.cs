@@ -22,16 +22,14 @@ namespace Calculator
 
         string[] numberArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
-        string buttonText;
-
-        string num1String = "0";
-        string num2String = "0";
-        string operatorSignTmp;
-        int num1 = -1;
-        int num2 = -1;
+        int num1 = -999; //Last number
+        int num2 = -999; //First number
+        int stackCount;
+        int stackIndex;
         string operatorSign = null;
-        int result;
-        int resultTmp;
+        string operatorSignTmp = null;
+        string popTmp;
+
 
         public Form1()
         {
@@ -43,70 +41,108 @@ namespace Calculator
         public void calculate(object sender, EventArgs e)
         {
             Button buttonText = (Button)sender;
-            string input = buttonText.Text;
+            string input = buttonText.Name;
 
             //bool isNumber = numberArray.Contains(input);
 
-            if (input != "=")
+            switch (input)
             {
-                string popTmp = inputStack.Pop();
-                if (isNumber(inputStack.Pop()) && isNumber(input) )
-                {
-                    popTmp += input;
-                    inputStack.Push(popTmp);
-                }
-                else
-                {
-                    inputStack.Push(input);
-                } 
-            }
-            else
-            {
-                foreach (string pop in inputStack)
-                {
-                    if (isNumber(pop.Substring(0, 1)))
+                case "C":
+                    DisplayLabel.Text = "0";
+                    num1 = -999;
+                    num2 = -999;
+                    inputStack.Clear();
+                    break;
+
+                default:
+                    if (input != "=")
                     {
-                        if (num1 == -1)
+                        popTmp = (inputStack.Count > 0) ? inputStack.Pop() : null;
+                        if (popTmp != null)
                         {
-                            num1 = Int32.Parse(pop);
+                            if (isNumber(popTmp) && isNumber(input))
+                            {
+                                popTmp += input;
+                                DisplayLabel.Text = popTmp;
+                                inputStack.Push(popTmp);
+                                popTmp = null;
+                            }
+                            else
+                            {
+                                if (isNumber(input))
+                                {
+                                    DisplayLabel.Text = input;
+                                }
+                                inputStack.Push(popTmp);
+                                inputStack.Push(input);
+                            }
                         }
                         else
                         {
-                            num2 = Int32.Parse(pop);
+                            DisplayLabel.Text = input;
+                            inputStack.Push(input);
                         }
                     }
                     else
                     {
-                        operatorSign = pop;
-                    }
-
-                    if ( (num1 != -1) && (num2 != -1) )
-                    {
-                        switch(operatorSign)
+                        foreach (string pop in inputStack)
                         {
-                            case "+":
-                                num1 = num2 + num1;
-                                break;
-                            case "-":
-                                num1 = num2 - num1;
-                                break;
-                            case "x":
-                                num1 = num2 * num1;
-                                break;
-                            case "/":
-                                num1 = num2 / num1;
-                                break;
+                            if (isNumber(pop))
+                            {
+                                if (num1 == -999)
+                                {
+                                    num1 = Int32.Parse(pop);
+                                }
+                                else
+                                {
+                                    num2 = Int32.Parse(pop);
+                                }
+                            }
+                            else
+                            {
+                                operatorSign = pop;
+                            }
+
+                            if ((num1 != -999) && (num2 != -999))
+                            {
+                                if ((num1 == 0) && (operatorSign == "/"))
+                                {
+                                    DisplayLabel.Text = "Cannot divide by 0";
+                                    break;
+                                }
+                                else
+                                {
+                                    switch (operatorSign)
+                                    {
+                                        case "+":
+                                            num1 = num2 + num1;
+                                            break;
+                                        case "-":
+                                            num1 = num2 - num1;
+                                            break;
+                                        case "X":
+                                            num1 = num2 * num1;
+                                            break;
+                                        case "/":
+                                            num1 = num2 / num1;
+                                            break;
+                                    }
+                                }
+                            }
                         }
+
+                        DisplayLabel.Text = num1.ToString();
                     }
-                }
+                    break;
             }
+            
         }
 
 
 
         public bool isNumber(string input)
         {
-            return numberArray.Contains(input);
+            return numberArray.Contains(input.Substring(0, 1));
         }
 
     }
