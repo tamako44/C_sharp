@@ -22,13 +22,15 @@ namespace Calculator
 
         string[] numberArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
-        int num1 = -999; //Last number
-        int num2 = -999; //First number
+        int numMax = Int32.MaxValue;
+        int num1 = Int32.MaxValue; //Last number
+        int num2 = Int32.MaxValue; //First number
         int stackCount;
         int stackIndex;
         string operatorSign = null;
         string operatorSignTmp = null;
         string popTmp;
+        string pop;
 
 
         public Form1()
@@ -49,8 +51,8 @@ namespace Calculator
             {
                 case "C":
                     DisplayLabel.Text = "0";
-                    num1 = -999;
-                    num2 = -999;
+                    num1 = numMax;
+                    num2 = numMax;
                     inputStack.Clear();
                     break;
 
@@ -79,17 +81,25 @@ namespace Calculator
                         }
                         else
                         {
-                            DisplayLabel.Text = input;
+                            if(isNumber(input))
+                            {
+                                DisplayLabel.Text = input;
+                                inputStack.Push(input);
+                            }
                             inputStack.Push(input);
                         }
                     }
                     else
                     {
-                        foreach (string pop in inputStack)
+                        //foreach (string pop in inputStack)
+                        stackCount = inputStack.Count;
+                        int n = 0;
+                        while (++n < stackCount)
                         {
+                            pop = inputStack.Pop();
                             if (isNumber(pop))
                             {
-                                if (num1 == -999)
+                                if (num1 == numMax)
                                 {
                                     num1 = Int32.Parse(pop);
                                 }
@@ -103,39 +113,46 @@ namespace Calculator
                                 operatorSign = pop;
                             }
 
-                            if ((num1 != -999) && (num2 != -999))
+                            if ((num1 != numMax) && (num2 != numMax))
                             {
-                                if ((num1 == 0) && (operatorSign == "/"))
+                                switch (operatorSign)
                                 {
-                                    DisplayLabel.Text = "Cannot divide by 0";
-                                    break;
-                                }
-                                else
-                                {
-                                    switch (operatorSign)
-                                    {
-                                        case "+":
-                                            num1 = num2 + num1;
-                                            break;
-                                        case "-":
-                                            num1 = num2 - num1;
-                                            break;
-                                        case "X":
-                                            num1 = num2 * num1;
-                                            break;
-                                        case "/":
+                                    case "+":
+                                        num1 = num2 + num1;
+                                        break;
+                                    case "-":
+                                        num1 = num2 - num1;
+                                        break;
+                                    case "X":
+                                        num1 = num2 * num1;
+                                        break;
+                                    case "/":
+                                        if ((num1 == 0))
+                                        {
+                                            inputStack.Clear();
+                                        }
+                                        else
                                             num1 = num2 / num1;
-                                            break;
-                                    }
+                                        break;
                                 }
+                                num2 = numMax;
+                                operatorSign = null;
                             }
+
                         }
 
-                        DisplayLabel.Text = num1.ToString();
+                        if ((num1 == 0) && (operatorSign == "/"))
+                        {
+                            DisplayLabel.Text = "Error";
+                        }
+                        else
+                        {
+                            DisplayLabel.Text = num1.ToString();
+                        }
                     }
                     break;
             }
-            
+
         }
 
 
