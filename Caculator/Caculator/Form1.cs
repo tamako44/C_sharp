@@ -103,11 +103,11 @@ namespace Calculator
                             {
                                 if (num1 == numMax)
                                 {
-                                    num1 = Int32.Parse(pop);
+                                    num1 = Decimal.Parse(pop);
                                 }
                                 else
                                 {
-                                    num2 = Int32.Parse(pop);
+                                    num2 = Decimal.Parse(pop);
                                 }
                             }
                             else
@@ -149,25 +149,24 @@ namespace Calculator
                                     break;
                                 case "sqrt":
                                     num1D = Convert.ToDouble(num1);
-                                    num1 = Convert.ToInt32(Math.Sqrt(num1D));
+                                    num1 = Convert.ToDecimal(Math.Sqrt(num1D));
                                     break;
                                 case "power":
                                     num1D = Convert.ToDouble(num1);
-                                    num1 = Convert.ToInt32(Math.Pow(num1D, 2));
+                                    num1 = Convert.ToDecimal(Math.Pow(num1D, 2));
                                     break;
                                 case "integral":
-                                    //if ((num1 == 0))
-                                    //{
-                                    //    inputStack.Clear();
-                                    //}
-                                    //else
-                                    //    num1 = 1 / num1;
-                                    num1 = 1 / num1;
+                                    if ((num1 == 0))
+                                    {
+                                        inputStack.Clear();
+                                    }
+                                    else
+                                        num1 = 1 / num1;
                                     break;
                             }
                         }
 
-                        if ((num1 == 0) && (operatorSign == "/"))
+                        if ((num1 == 0) && ((operatorSign == "/") || (input == "integral")))
                         {
                             DisplayLabel.Text = "Error";
                         }
