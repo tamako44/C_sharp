@@ -16,18 +16,17 @@ namespace Calculator
     {
         enum Status { init, num1, operatorSign, num2, result };
         Status inputStatus = Status.init;
-        //int inputStatus = (int)Status.init;
 
         Stack<string> inputStack = new Stack<string>();
 
         string[] numberArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
-        string[] spOperatorArray = new string[] { "sqrt", "power", "integral", "=" };
+        string[] spOperatorArray = new string[] { "sqrt", "power", "integral", "percent", "=" };
 
         decimal numMax = Decimal.MaxValue;
         decimal num1 = Decimal.MaxValue; //Last number
         decimal num2 = Decimal.MaxValue; //First number
+        decimal displayNum = 0m;
         int stackCount;
-        int stackIndex;
         string operatorSign = null;
         string operatorSignTmp = null;
         string popTmp;
@@ -46,8 +45,6 @@ namespace Calculator
         {
             Button buttonText = (Button)sender;
             string input = buttonText.Name;
-
-            //bool isNumber = numberArray.Contains(input);
 
             switch (input)
             {
@@ -83,12 +80,15 @@ namespace Calculator
                         }
                         else
                         {
-                            if(isNumber(input))
+                            if (isNumber(input))
                             {
                                 DisplayLabel.Text = input;
                                 inputStack.Push(input);
                             }
-                            inputStack.Push(input);
+                            else
+                            {
+                                inputStack.Push(input);
+                            }
                         }
                     }
                     else
@@ -96,7 +96,7 @@ namespace Calculator
                         //foreach (string pop in inputStack)
                         stackCount = inputStack.Count;
                         int n = 0;
-                        while (++n < stackCount)
+                        while (n++ < stackCount)
                         {
                             pop = inputStack.Pop();
                             if (isNumber(pop))
@@ -118,7 +118,7 @@ namespace Calculator
                             switch (input)
                             {
                                 case "=":
-                                    if ((num1 != numMax) && (num2 != numMax))
+                                    if ((num1 != numMax) && (num2 != numMax) && (operatorSign != null))
                                     {
                                         switch (operatorSign)
                                         {
@@ -138,10 +138,7 @@ namespace Calculator
                                                 }
                                                 else
                                                     num1 = num2 / num1;
-                                                break;
-                                            case "percent":
-                                                num1 = num1 * 1;
-                                                break;
+                                                break;          
                                         }
                                         num2 = numMax;
                                         operatorSign = null;
@@ -156,12 +153,20 @@ namespace Calculator
                                     num1 = Convert.ToDecimal(Math.Pow(num1D, 2));
                                     break;
                                 case "integral":
-                                    if ((num1 == 0))
+                                    if (num1 == 0)
                                     {
                                         inputStack.Clear();
                                     }
                                     else
                                         num1 = 1 / num1;
+                                    break;
+                                case "percent":
+                                    if ((num1 != numMax) && (num2 != numMax))
+                                    {
+                                        num1 = num1 * (num2 / 100);
+                                        num2 = numMax;
+                                        operatorSign = null;
+                                    }
                                     break;
                             }
                         }
@@ -172,7 +177,10 @@ namespace Calculator
                         }
                         else
                         {
-                            DisplayLabel.Text = num1.ToString();
+                            if (num1 == numMax)
+                                DisplayLabel.Text = "0";
+                            else
+                                DisplayLabel.Text = num1.ToString();
                         }
                     }
                     break;
