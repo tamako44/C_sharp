@@ -57,7 +57,7 @@ namespace OSK
 
         private void InitializeKeyboard()
         {
-            this.TopMost = true;
+            //this.TopMost = true;
 
             SetPanel1();
             SetPanel2();
@@ -107,14 +107,16 @@ namespace OSK
 
             foreach (KeyButton key in KeyLayout1)
             {
-                Panel1.Controls.Add(key);
+                
                 if (key.GetType() == typeof(ShiftButton))
                 {
                     ShiftButton button = (ShiftButton) key;
                     button.StatusChange += SFStatus;
+                    Panel1.Controls.Add(button);
                 }
                 else
                 {
+                    Panel1.Controls.Add(key);
                     key.StatusChange += KeyStatus;
                 }
             }
@@ -222,7 +224,7 @@ namespace OSK
                 //    break;
             }
         }
+    
     }
-
 }
 
