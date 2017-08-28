@@ -23,17 +23,17 @@ namespace Calculator
         string[] spOperatorArray = new string[] { "sqrt", "power", "integral", "percent" };
         string[] operatorArray = new string[] { "+", "-", "X", "/" };
 
+        int stackCount;
         decimal numMax = Decimal.MaxValue;
         decimal num1 = Decimal.MaxValue; //First number
         decimal num2 = Decimal.MaxValue; //Last number
         decimal num1Temp = Decimal.MaxValue;
-        decimal displayNum = 0m;
-        int stackCount;
         string operatorSign = null;
-        string operatorSignTmp = null;
+        string operatorSignTemp = null;
         string popTmp;
         string pop;
         double num1D;
+        bool operatorStatus = false;
 
 
         public Form1()
@@ -53,16 +53,17 @@ namespace Calculator
                 DisplayLabel.Text = "0";
                 num1 = numMax;
                 num2 = numMax;
+                num1Temp = numMax;
                 operatorSign = null;
+                operatorStatus = false;
+                operatorSignTemp = null;
+
                 inputStack.Clear();
             }
             else
             {
-                if ((isSpOperator(input) == false) && (operatorSign == null) && (input != "="))
-                {
-                    stackPush(input);
-                }
-                else
+                
+                if ((isSpOperator(input)) || (input == "=") || (operatorStatus && isOperator(input)))
                 {
                     stackCount = inputStack.Count;
                     int n = 0;
@@ -71,19 +72,30 @@ namespace Calculator
                     {
                         stackPop(input);
                         calculatorResult(input);
-
                     }
 
                     displayResult(input);
+                    resetData();
+                }
+                else
+                {
+                    stackPush(input);
                 }
             }
 
         }
 
 
+
+
         private void stackPush(string input)
         {
             popTmp = (inputStack.Count > 0) ? inputStack.Pop() : null;
+
+            if (isOperator(input))
+            {
+                operatorStatus = true;
+            }
 
             if (popTmp != null)
             {
@@ -127,7 +139,6 @@ namespace Calculator
                 if (num1 == numMax)
                 {
                     num1 = Decimal.Parse(pop);
-                    num1Temp = num1;
                 }
                 else
                 {
@@ -137,6 +148,8 @@ namespace Calculator
             else
             {
                 operatorSign = pop;
+                operatorSignTemp = operatorSign;
+                operatorStatus = false;
             }
             
         }
@@ -145,20 +158,35 @@ namespace Calculator
         {
             if (isOperator(input))
             {
-                normalCalculator();
-                operatorSign = input;
+                if ((num1 != numMax) && (num2 != numMax) && (operatorSign != null))
+                {
+                    normalCalculator();
+                    if (isOperator(input))
+                    {
+                        inputStack.Push(input);
+                        operatorStatus = true;
+                    }
+                }
+
             }
             else if (input == "=")
             {
                 if ((num1 != numMax) && (num2 != numMax) && (operatorSign != null))
+                {
                     normalCalculator();
-               // else if
-
+                }
+                else if ((inputStack.Count  == 0) && (num2 == numMax))
+                {
+                    num1Temp = num1;
+                    num2 = num1Temp;
+                    operatorSign = operatorSignTemp;
+                    normalCalculator();
+                }
             }
             else if (isSpOperator(input))
             {
                 spCalculator(input);
-            }         
+            }             
         }
 
         private void normalCalculator()
@@ -184,8 +212,6 @@ namespace Calculator
                     break;
             }
             inputStack.Push(num1.ToString());
-            num1 = numMax;
-            num2 = numMax;
         }
 
         private void spCalculator(string input)
@@ -218,9 +244,6 @@ namespace Calculator
                     break;
             }
             inputStack.Push(num1.ToString());
-            num1 = numMax;
-            num2 = numMax;
-
         }
 
         private void displayResult(string input)
@@ -236,6 +259,13 @@ namespace Calculator
                 else
                     DisplayLabel.Text = num1.ToString();
             }
+        }
+
+        private void resetData()
+        {
+            num1 = numMax;
+            num2 = numMax;
+            operatorSign = null;
         }
 
         private bool isNumber(string input)
