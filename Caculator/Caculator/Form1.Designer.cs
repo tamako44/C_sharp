@@ -75,7 +75,7 @@ namespace Calculator
         }
 
         private string[] TextArr = new string[] { "%", " √ ", "x²", "¹/x", "CE", "C", "←", " ÷ ", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "±", "0", ".", "=" };
-        private string[] NameArr = new string[] { "percent", "sqrt", "power", "integral", "CE", "C", "delete", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "plus-minus", "0", ".", "=" };
+        private string[] NameArr = new string[] { "percent", "sqrt", "power", "inverse", "CE", "C", "delete", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "plus-minus", "0", ".", "=" };
         private int[] LocationXArr = new int[] { 60, 127, 194, 261, 60, 127, 194, 261, 60, 127, 194, 261, 60, 127, 194, 261, 60, 127, 194, 261, 60, 127, 194, 261 };
         private int[] LocationYArr = new int[] { 170, 170, 170, 170, 222, 222, 222, 222, 274, 274, 274, 274, 326, 326, 326, 326, 378, 378, 378, 378, 430, 430, 430, 430 };
         private int[] SizeXArr = new int[] { 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65 };
