@@ -20,7 +20,7 @@ namespace Calculator
         Stack<string> inputStack = new Stack<string>();
 
         string[] numberArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
-        string[] spOperatorArray = new string[] { "sqrt", "power", "integral", "percent" };
+        string[] spOperatorArray = new string[] { "sqrt", "power", "inverse", "percent" };
         string[] operatorArray = new string[] { "+", "-", "X", "/" };
 
         int stackCount;
@@ -258,7 +258,7 @@ namespace Calculator
                     num1D = Convert.ToDouble(num1);
                     num1 = Convert.ToDecimal(Math.Pow(num1D, 2));
                     break;
-                case "integral":
+                case "inverse":
                     if (num1 == 0)
                     {
                         inputStack.Clear();
@@ -283,7 +283,7 @@ namespace Calculator
         /// </summary>
         private void displayResult(string input)
         {
-            if ((num1 == 0) && ((operatorSign == "/") || (input == "integral")))
+            if ((num1 == 0) && ((operatorSign == "/") || (input == "inverse")))
             {
                 DisplayLabel.Text = "Error";
             }
