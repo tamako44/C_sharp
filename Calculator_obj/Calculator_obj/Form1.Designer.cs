@@ -47,19 +47,19 @@ namespace Calculator_obj
 
         #endregion
 
-        private Label displayLabel;
+        private Label lbDisplay;
 
         private void CreateLabel()
         {
-            displayLabel = new Label();
-            this.displayLabel.Name = "DisplayLabel";
+            lbDisplay = new Label();
+            this.lbDisplay.Name = "DisplayLabel";
             //this.RightToLeft = RightToLeft.Yes;
-            this.displayLabel.TextAlign = ContentAlignment.BottomRight;
-            this.displayLabel.Font = new Font("Arial", 40);
-            this.displayLabel.Text = "0";
-            this.displayLabel.Size = new Size(263, 100);
-            this.displayLabel.Location = new Point(60, 68);
-            this.Controls.Add(displayLabel);
+            this.lbDisplay.TextAlign = ContentAlignment.BottomRight;
+            this.lbDisplay.Font = new Font("Arial", 40);
+            this.lbDisplay.Text = "0";
+            this.lbDisplay.Size = new Size(263, 100);
+            this.lbDisplay.Location = new Point(60, 68);
+            this.Controls.Add(lbDisplay);
         }
 
         private void CreateButton()

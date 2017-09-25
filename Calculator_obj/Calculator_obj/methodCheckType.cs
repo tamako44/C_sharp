@@ -17,13 +17,13 @@ namespace Calculator_obj
             return numberArray.Contains(input.Substring(0, 1));
         }
 
-        // Check the operator is speacial operator or not ["%", " √ ", "x²", "¹/x", "±"], return boolean
+        // Check the operator is speacial operator or not. ["%", " √ ", "x²", "¹/x", "±"], return boolean
         internal bool isSpOperator(string input)
         {
             return spOperatorArray.Contains(input);
         }
 
-        // Check the operator is normal operator or not ["+", "-", "X", "/"], return boolean
+        // Check the operator is normal operator or not. ["+", "-", "X", "/"], return boolean
         internal bool isOperator(string input)
         {
             return operatorArray.Contains(input);

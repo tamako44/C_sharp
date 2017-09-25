@@ -11,16 +11,25 @@ namespace Calculator_obj
     {
     }
 
+    /// <summary>
+    /// For ["+", "-", "X", "/"]
+    /// </summary>
     class basicOpButton : operatorButton
     {
 
     }
 
+    /// <summary>
+    /// For ["%", " √ ", "x²", "¹/x", "±"]
+    /// </summary>
     class spOpButton : operatorButton
     {
 
     }
 
+    /// <summary>
+    /// For ["="]
+    /// </summary>
     class equalButton : operatorButton
     {
 

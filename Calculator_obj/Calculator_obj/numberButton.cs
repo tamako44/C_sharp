@@ -11,6 +11,11 @@ namespace Calculator_obj
     {
     }
 
+
+
+    /// <summary>
+    /// For ["."]
+    /// </summary>
     class pointButton : numberButton
     {
 
