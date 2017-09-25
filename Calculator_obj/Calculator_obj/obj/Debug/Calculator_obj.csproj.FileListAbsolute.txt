@@ -1,0 +1,9 @@
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\bin\Debug\Calculator_obj.exe.config
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\bin\Debug\Calculator_obj.exe
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\bin\Debug\Calculator_obj.pdb
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\obj\Debug\Calculator_obj.csprojResolveAssemblyReference.cache
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\obj\Debug\Calculator_obj.Properties.Resources.resources
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\obj\Debug\Calculator_obj.csproj.GenerateResource.Cache
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\obj\Debug\Calculator_obj.exe
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\obj\Debug\Calculator_obj.pdb
+C:\Users\ysc\Documents\Git\learn\Calculator_obj\Calculator_obj\obj\Debug\Calculator_obj.Form1.resources
