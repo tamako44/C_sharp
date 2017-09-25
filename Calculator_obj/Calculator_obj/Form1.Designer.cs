@@ -47,7 +47,11 @@ namespace Calculator_obj
 
         #endregion
 
+
         private Label lbDisplay;
+        State state = new State();
+        Calculator calculator;
+
 
         private void CreateLabel()
         {
@@ -66,6 +70,10 @@ namespace Calculator_obj
         {
             //CreateButton GenButton = new CreateButton();
             //BaseButton[] ButtonArray = GenButton.CreateButtons();
+            calculator = new Calculator();
+            calculator.state = state; // the first state is the property of calculator
+            calculator.updateState = input => lbDisplay.Text = input;
+
             Button[] ButtonArray = CreateKey();
 
             foreach (Button key in ButtonArray)
@@ -93,7 +101,9 @@ namespace Calculator_obj
                 // total 10 buttons
                 if (checkType.isNumber(NameArr[arrayIndex]))
                 {
-                    btn[arrayIndex] = new numberButton();
+                    numberButton button = new numberButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 // total 4 buttons

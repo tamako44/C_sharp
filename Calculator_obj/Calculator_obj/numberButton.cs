@@ -9,6 +9,13 @@ namespace Calculator_obj
 {
     public class numberButton : Button
     {
+        public Calculator calculator;
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.calculate(this.Text);
+        }
     }
 
 
