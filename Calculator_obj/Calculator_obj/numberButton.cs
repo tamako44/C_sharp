@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace Calculator_obj
 {
-    public class numberButton : Button
+    public class NumberButton : Button
     {
         public Calculator calculator;
 
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            calculator.calculate(this.Text);
+            calculator.OnNumStateChange(this.Name);
         }
     }
 
@@ -23,8 +23,13 @@ namespace Calculator_obj
     /// <summary>
     /// For ["."]
     /// </summary>
-    class pointButton : numberButton
+    class PointButton : NumberButton
     {
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnNumStateChange(this.Name);
+        }
 
     }
 }

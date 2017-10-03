@@ -49,8 +49,10 @@ namespace Calculator_obj
 
 
         private Label lbDisplay;
-        State state = new State();
+
         Calculator calculator;
+        //State state = new State();
+        MethodCheckType checkType = new MethodCheckType();
 
 
         private void CreateLabel()
@@ -66,13 +68,15 @@ namespace Calculator_obj
             this.Controls.Add(lbDisplay);
         }
 
-        private void CreateButton()
+        private void CreateCalculator()
         {
-            //CreateButton GenButton = new CreateButton();
+            //CreateCalculator GenButton = new CreateCalculator();
             //BaseButton[] ButtonArray = GenButton.CreateButtons();
             calculator = new Calculator();
-            calculator.state = state; // the first state is the property of calculator
-            calculator.updateState = input => lbDisplay.Text = input;
+            //lculator.state = state; // the first state is the property of calculator
+
+            // update the display lable using lambda
+            calculator.onStateUpdate = input => lbDisplay.Text = input;
 
             Button[] ButtonArray = CreateKey();
 
@@ -82,7 +86,7 @@ namespace Calculator_obj
             }
         }
 
-        methodCheckType checkType = new methodCheckType();
+
 
         private string[] TextArr = new string[] { "%", " √ ", "x²", "¹/x", "CE", "C", "←", " ÷ ", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "±", "0", ".", "=" };
         private string[] NameArr = new string[] { "percent", "sqrt", "power", "inverse", "CE", "C", "BS", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "plus-minus", "0", ".", "=" };
@@ -101,51 +105,65 @@ namespace Calculator_obj
                 // total 10 buttons
                 if (checkType.isNumber(NameArr[arrayIndex]))
                 {
-                    numberButton button = new numberButton();
+                    NumberButton button = new NumberButton();
                     button.calculator = calculator;
                     btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 // total 4 buttons
-                else if (checkType.isOperator(NameArr[arrayIndex]))
+                else if (checkType.isBasicOperator(NameArr[arrayIndex]))
                 {
-                    btn[arrayIndex] = new operatorButton();
+                    OperatorButton button = new BasicOpButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 //total 5 buttons
                 else if (checkType.isSpOperator(NameArr[arrayIndex]))
                 {
-                    btn[arrayIndex] = new spOpButton();
+                    SpOpButton button = new SpOpButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 //total 1 button
                 else if (NameArr[arrayIndex] == "=")
                 {
-                    btn[arrayIndex] = new equalButton();
+                    EqualButton button = new EqualButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 //total 1 button
                 else if (NameArr[arrayIndex] == "C")
                 {
-                    btn[arrayIndex] = new CButton();
+                    CButton button = new CButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 //total 1 button
                 else if (NameArr[arrayIndex] == "CE")
                 {
-                    btn[arrayIndex] = new CEButton();
+                    CEButton button = new CEButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 // total 1 button
                 else if (NameArr[arrayIndex] == "BS")
                 {
-                    btn[arrayIndex] = new BSButton();
+                    BSButton button = new BSButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
                 // point
                 else if (NameArr[arrayIndex] == ".")
                 {
-                    btn[arrayIndex] = new pointButton();
+                    PointButton button = new PointButton();
+                    button.calculator = calculator;
+                    btn[arrayIndex] = button;
                     //btn[arrayIndex].Click += new EventHandler();
                 }
 

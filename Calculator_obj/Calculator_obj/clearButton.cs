@@ -7,23 +7,36 @@ using System.Windows.Forms;
 
 namespace Calculator_obj
 {
-    class clearButton : Button
+    class ClearButton : Button
     {
+        public Calculator calculator;
     }
 
-    class CButton : clearButton
+    class CButton : ClearButton
     {
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnCClick(this.Name);
+        }
     }
 
-    class CEButton : clearButton
+    class CEButton : ClearButton
     {
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnCEClick(this.Name);
+        }
     }
 
-    class BSButton : clearButton
+    class BSButton : ClearButton
     {
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnBSClick(this.Name);
+        }
     }
 
 }

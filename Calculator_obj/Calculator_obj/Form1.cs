@@ -15,7 +15,7 @@ namespace Calculator_obj
         public Form1()
         {
             InitializeComponent();
-            CreateButton();
+            CreateCalculator();
             CreateLabel();
         }
 

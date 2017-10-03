@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Calculator_obj
 {
-    class methodCheckType
+    class MethodCheckType
     {
-        string[] numberArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+        string[] numberArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "." };
         string[] spOperatorArray = new string[] { "sqrt", "power", "inverse", "percent", "plus-minus" };
         string[] operatorArray = new string[] { "+", "-", "X", "/" };
+
 
         internal bool isNumber(string input)
         {
@@ -24,9 +25,16 @@ namespace Calculator_obj
         }
 
         // Check the operator is normal operator or not. ["+", "-", "X", "/"], return boolean
-        internal bool isOperator(string input)
+        internal bool isBasicOperator(string input)
         {
             return operatorArray.Contains(input);
+        }
+
+        internal bool isOperator(string input)
+        {
+            return operatorArray.Contains(input) || spOperatorArray.Contains(input) ? true : false;
+
+
         }
     }
 }

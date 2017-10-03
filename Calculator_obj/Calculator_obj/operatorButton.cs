@@ -7,32 +7,50 @@ using System.Windows.Forms;
 
 namespace Calculator_obj
 {
-    class operatorButton : Button
+    class OperatorButton : Button
     {
+        public Calculator calculator;
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+        }
     }
 
     /// <summary>
     /// For ["+", "-", "X", "/"]
     /// </summary>
-    class basicOpButton : operatorButton
+    class BasicOpButton : OperatorButton
     {
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnOpStateChange(this.Name);
+        }
     }
 
     /// <summary>
     /// For ["%", " √ ", "x²", "¹/x", "±"]
     /// </summary>
-    class spOpButton : operatorButton
+    class SpOpButton : OperatorButton
     {
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnSpOpeStateChange(this.Name);
+        }
     }
 
     /// <summary>
     /// For ["="]
     /// </summary>
-    class equalButton : operatorButton
+    class EqualButton : OperatorButton
     {
-
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            calculator.OnEqualStateChange(this.Name);
+        }
     }
 
 
